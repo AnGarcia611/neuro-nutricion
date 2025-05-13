@@ -1,0 +1,142 @@
+/* General styles for index.html */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    position: relative;
+    overflow: hidden;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+/* Intro overlay styles */
+.intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out;
+}
+
+.intro-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-gif {
+    max-width: 50%;
+    max-height: 50%;
+}
+
+/* Content visibility transitions */
+.content-hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.content-visible {
+    opacity: 1;
+}
+
+/* Info card styles */
+.info-card {
+    position: fixed;
+    bottom: 150px;
+    left: 130px;
+    max-width: 680px;
+    background-color: rgba(74, 20, 140, 0.75);
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    max-height: 85vh;
+    overflow-y: auto;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Nunito', sans-serif;
+    margin-right: 50px;
+}
+
+.info-card h1 {
+    color: #f45196;
+    font-size: 64px;
+    margin: 0 0 10px;
+    font-weight: 800;
+    letter-spacing: -0.64px;
+    line-height: normal;
+}
+
+.info-card h2 {
+    color: #FFF;
+    font-family: 'Manrope', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0 0 20px;
+    line-height: normal;
+}
+
+.info-card p {
+    margin: 12px 0;
+    font-size: 18px;
+    line-height: normal;
+    color: #FFF;
+    font-family: 'Manrope', sans-serif;
+}
+
+.divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 12px 0;
+}
+
+.comenzar-btn {
+    display: inline-block;
+    padding: 10px 10px;
+    background: #E84E96;
+    color: #F5F5F5;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 35px 10px 0px rgba(0, 0, 0, 0.00),
+                0px 22px 9px 0px rgba(0, 0, 0, 0.01),
+                0px 13px 8px 0px rgba(0, 0, 0, 0.05),
+                0px 6px 6px 0px rgba(0, 0, 0, 0.09),
+                0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+    text-align: center;
+    text-decoration: none;
+}
+
+.comenzar-btn:hover {
+    background-color: #ff0066;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 102, 0.5);
+    color: white;
+}
+
+.comenzar-btn:active {
+    background-color: #ff9ec0;
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(255, 158, 192, 0.5);
+}

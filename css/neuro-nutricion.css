@@ -1,0 +1,230 @@
+/* Styles specific to neuro-nutricion.html */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    position: relative;
+    /* Cambiado overflow de hidden a auto para permitir scroll */
+    overflow: auto;
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-principal {
+    color: #6a1b9a;
+    font-size: 36px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.description {
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 20px 0;
+    width: 100%;
+    margin: 40px auto;
+    height: 680px;
+}
+
+.card {
+    position: relative;
+    height: 80%;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    max-width: 250px;
+}
+
+.card.adjacent {
+    height: 90%;
+    max-width: 300px;
+    transform: translateY(-5px);
+}
+
+.card.active {
+    flex: 3;
+    max-width: 400px;
+    height: 100%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(98, 71, 223, 0.6);
+    padding: 20px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(10px); /* Added blur effect */
+}
+
+.card.active .card-info {
+    transform: translateY(0);
+}
+
+.card-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1.5px;
+    font-family: Nunito;
+    color: #FFF;
+    -webkit-text-stroke-width: 0.3px;
+    -webkit-text-stroke-color: #FFF;
+}
+
+.card-info p {
+    margin: 0 0 10px 0;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.articulo-tag {
+    display: inline-block;
+    font-size: 11px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.leer-mas-btn {
+    background: linear-gradient(90deg, #EA4E96 0%, #FF6EB1 100%);
+    color: #FFF;
+    border: none;
+    border-radius: 2px;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.leer-mas-btn:hover {
+    background: linear-gradient(90deg, #FE0578 0%, #FE0678 100%);
+    text-decoration: underline;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon-box {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px; /* Ajuste para bordes más redondeados */
+    overflow: hidden;
+    box-shadow: -3px 26px 7px 0px rgba(0, 0, 0, 0.00), -2px 17px 7px 0px rgba(0, 0, 0, 0.01), -1px 9px 6px 0px rgba(0, 0, 0, 0.05), 0px 4px 4px 0px rgba(0, 0, 0, 0.09), 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-box img {
+    width: 50%; /* Ajuste para que los íconos sean proporcionales */
+    height: 50%;
+    object-fit: contain;
+}
+
+.icon-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 37px 10px 0px rgba(0, 0, 0, 0.00), 0px 24px 10px 0px rgba(0, 0, 0, 0.01), 0px 13px 8px 0px rgba(0, 0, 0, 0.05), 0px 6px 6px 0px rgba(0, 0, 0, 0.09), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+}
+
+.icons-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaciado entre los iconos */
+    padding: 20px;
+    flex-wrap: wrap; /* Permite que los iconos se ajusten en varias filas si es necesario */
+}
+
+.icon-box.purple {
+    background-color: #5E35B1; /* Color morado */
+}
+
+.icon-box.purple:hover {
+    background-color: #FE0578; /* Color rosa fuerte al hacer hover */
+}
+
+.icon-box.pink {
+    background-color: #EC407A; /* Color rosa */
+}
+
+.icon-box.pink:hover {
+    background-color: #560BA4; /* Color morado oscuro al hacer hover */
+}
+
+.icon-box.blue {
+    background-color: #42A5F5; /* Color azul */
+}
+
+.icon-box.blue:hover {
+    background-color: #ED6D2F; /* Color naranja al hacer hover */
+}
+
+.icon-box.orange {
+    background-color: #FF7043; /* Color naranja */
+}
+
+.icon-box.orange:hover {
+    background-color: #F61F82; /* Color rosa fuerte al hacer hover */
+}
+
+.icon-box.black {
+    background-color: #000000; /* Fondo negro */
+}
+
+.icon-box.black:hover {
+    background-color: #B3C5E7; /* Fondo azul claro al hacer hover */
+}
+
+.icon-box.black img {
+    content: url('../iconos/icono_5.svg'); /* Default white icon */
+}
+
+.icon-box.black:hover img {
+    content: url('../iconos/icono_5_negro.svg'); /* Black icon on hover */
+}
+
+.icon-box.white {
+    background-color: #FFFFFF; /* Color blanco */
+}
+

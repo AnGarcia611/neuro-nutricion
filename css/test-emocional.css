@@ -1,0 +1,261 @@
+/* Moved inline styles from test-emocional.html */
+body {
+    overflow-x: hidden;
+    background-color: #AE1B8F;
+    padding: 0;
+    margin: 0;
+}
+
+.background-figure {
+    position: absolute;
+    z-index: -1;
+    fill: #CC2D95;
+}
+
+.background-figure-1 {
+    top: 0;
+    left: 0;
+    height: 90vh;
+}
+
+.background-figure-2 {
+    bottom: 0;
+    right: 0;
+    height: 90vh;
+}
+
+.emoji-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+.emoji-container {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.emoji-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.emoji-label {
+    color: #FFF;
+    font-family: Nunito;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.emojis-row {
+    display: flex;
+    justify-content: left;
+    margin: 60px 0 80px;
+    margin-left: 150px;
+}
+
+.hand-pointer-container {
+    height: 600px; /* Tamaño fijo del contenedor */
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.hand-pointer {
+    transform: rotate(0deg);
+    height: 100%;
+}
+
+@keyframes rotateOut {
+    0% {
+        transform: rotate(0deg) translateX(0); /* Posición inicial: las 12 */
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(90deg) translateX(200%); /* Posición final: las 3 (fuera de la pantalla) */
+        opacity: 0;
+    }
+}
+
+@keyframes rotateIn {
+    0% {
+        transform: rotate(-90deg) translateX(-200%); /* Posición inicial: las 9 (fuera de la pantalla) */
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg) translateX(0); /* Posición final: las 12 */
+        opacity: 1;
+    }
+}
+
+.hand-pointer.rotate-out {
+    animation: rotateOut 0.5s ease forwards;
+}
+
+.hand-pointer.rotate-in {
+    animation: rotateIn 0.5s ease forwards;
+}
+
+.test-title {
+    color: #FFF;
+    font-family: Nunito;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: 300px;
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+
+.test-subtitle {
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+    margin-left: 150px;
+    margin-top: 10px;
+    width: 600px; /* Ajusta el ancho del subtítulo */
+}
+
+.icons-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaciado entre los iconos */
+    padding: 70px;
+    flex-wrap: wrap; /* Permite que los iconos se ajusten en varias filas si es necesario */
+    position: absolute;
+    bottom: 0;
+    width: 100%; /* Asegura que ocupe todo el ancho de la página */
+}
+
+.icon-box {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px; /* Ajuste para bordes más redondeados */
+    overflow: hidden;
+    box-shadow: -3px 26px 7px 0px rgba(0, 0, 0, 0.00), -2px 17px 7px 0px rgba(0, 0, 0, 0.01), -1px 9px 6px 0px rgba(0, 0, 0, 0.05), 0px 4px 4px 0px rgba(0, 0, 0, 0.09), 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-box img {
+    width: 50%; /* Ajuste para que los íconos sean proporcionales */
+    height: 50%;
+    object-fit: contain;
+}
+
+.icon-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 37px 10px 0px rgba(0, 0, 0, 0.00), 0px 24px 10px 0px rgba(0, 0, 0, 0.01), 0px 13px 8px 0px rgba(0, 0, 0, 0.05), 0px 6px 6px 0px rgba(0, 0, 0, 0.09), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+}
+
+.icon-box.purple {
+    background-color: #5E35B1; /* Color morado */
+}
+
+.icon-box.purple:hover {
+    background-color: #FE0578; /* Color rosa fuerte al hacer hover */
+}
+
+.icon-box.pink {
+    background-color: #EC407A; /* Color rosa */
+}
+
+.icon-box.pink:hover {
+    background-color: #560BA4; /* Color morado oscuro al hacer hover */
+}
+
+.icon-box.blue {
+    background-color: #42A5F5; /* Color azul */
+}
+
+.icon-box.blue:hover {
+    background-color: #ED6D2F; /* Color naranja al hacer hover */
+}
+
+.icon-box.orange {
+    background-color: #FF7043; /* Color naranja */
+}
+
+.icon-box.orange:hover {
+    background-color: #F61F82; /* Color rosa fuerte al hacer hover */
+}
+
+.icon-box.black {
+    background-color: #000000; /* Fondo negro */
+}
+
+.icon-box.black:hover {
+    background-color: #B3C5E7; /* Fondo azul claro al hacer hover */
+}
+
+.icon-box.black img {
+    content: url('../iconos/icono_5.svg'); /* Default white icon */
+}
+
+.icon-box.black:hover img {
+    content: url('../iconos/icono_5_negro.svg'); /* Black icon on hover */
+}
+
+.icon-box.white {
+    background-color: #FFFFFF; /* Color blanco */
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+}
+
+.reset-button {
+    margin-left: 150px;
+    background: linear-gradient(90deg, #EA4E96 0%, #FF6EB1 100%);
+    color: #FFF;
+    border: none;
+    border-radius: 2px;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Asegura que el botón esté al frente */
+}
+
+.reset-button:hover {
+    background: linear-gradient(90deg, #FE0578 0%, #FE0678 100%);
+    text-decoration: underline;
+}
+
+.parrafo-recomendacion {
+    margin-left: 150px;
+    max-width: 600px;
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+

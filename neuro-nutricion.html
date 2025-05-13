@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Qué es la Neuro nutrición?</title>
+    <link rel="stylesheet" href="css/neuro-nutricion.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <main class="neuro-nutricion-container">
+        <div class="header-section">
+            <h1 class="titulo-principal">¿Qué es la Neuro nutrición?</h1>
+            <p class="description">Alimenta tu mente desde el plato. La Neuronutrición estudia cómo lo que comes impacta
+                tu salud mental y emocional.</p>
+        </div>
+        <div class="cards-container">
+            <div class="card intestino-card">
+                <img src="imagenes/imagen_1.png" alt="Microbiota intestinal">
+                <div class="card-info">
+                    <h3>El secreto del intestino</h3>
+                    <p>Un viaje al centro de tu microbiota.</p>
+                    <p>Este documental explora cómo los billones de microbios en tu intestino afectan tu salud mental,
+                        inmunidad y emociones.</p>
+                    <p>Documental recomendado</p>
+                    <div class="button-container">
+                        <button class="leer-mas-btn">VER</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card doctor-card">
+                <img src="imagenes/imagen_2.png" alt="Doctor especialista">
+                <div class="card-info">
+                    <h3>Conexión intestino y cerebro</h3>
+                    <p>Claves ocultas detrás de la ansiedad y la depresión.</p>
+                    <p>Un experto revela cómo tu salud digestiva influye directamente en tu estado emocional. Entiende
+                        el rol del intestino en la producción de neurotransmisores clave.</p>
+                    <p>Video con experto</p>
+                    <div class="button-container">
+                        <button class="leer-mas-btn">VER VIDEO</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card main-card active">
+                <img src="imagenes/imagen_3.png" alt="Cerebro como planta y alimentos saludables">
+                <div class="card-info">
+                    <h3>Nutrición y salud mental</h3>
+                    <p>Estrategias basadas en evidencia.</p>
+                    <p>Conoce cómo la alimentación puede influir en la ansiedad, depresión y otros trastornos mentales.
+                        Un enfoque desde la nutrición clínica.</p>
+                    <p>Artículos recomendados</p>
+                    <div class="button-container">
+                        <button class="leer-mas-btn">LEER MÁS</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card cerebro-libro-card">
+                <img src="imagenes/imagen_4.png" alt="Cerebro y libro">
+                <div class="card-info">
+                    <h3>Alimenta tu cerebro</h3>
+                    <p>Infografía animada sobre alimentos y salud mental.</p>
+                    <p>Un recorrido visual y educativo que explica cómo ciertos alimentos mejoran la memoria, reducen el
+                        estrés y fortalecen la mente. Ideal para aprender de forma rápida y atractiva.</p>
+                    <p>Infografía en video</p>
+                    <div class="button-container">
+                        <button class="leer-mas-btn">VER VIDEO</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card comida-mala-card">
+                <img src="imagenes/imagen_5.png" alt="Comida no saludable">
+                <div class="card-info">
+                    <h3>El Cerebro y la alimentación</h3>
+                    <p>¿Cómo influye tu dieta en tus emociones, decisiones y conducta?</p>
+                    <p>Aquí podrás ver cómo la dieta afecta la memoria, las emociones, la conducta y hasta la toma de
+                        decisiones.</p>
+                    <p>Documental recomendado</p>
+                    <div class="button-container">
+                        <button class="leer-mas-btn">VER VIDEO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="icons-grid">
+            <div class="icon-box purple">
+                <img src="iconos/icono_1.png" alt="Ícono de cerebro" class="icon">
+            </div>
+            <div class="icon-box pink">
+                <img src="iconos/icono_2.png" alt="Ícono de alimentación" class="icon">
+            </div>
+            <div class="icon-box blue">
+                <img src="iconos/icono_3.png" alt="Ícono de intestino" class="icon">
+            </div>
+            <div class="icon-box orange">
+                <img src="iconos/icono_4.png" alt="Ícono de agua" class="icon">
+            </div>
+            <div class="icon-box black">
+                <img src="iconos/icono_5.svg" alt="Ícono de información" class="icon">
+            </div>
+            <div class="icon-box white">
+                <img src="iconos/icono_6.png" alt="Ícono de mano" class="icon">
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.card');
+
+            // Función para actualizar las clases de las tarjetas
+            function updateCards() {
+                // Encontrar el índice de la tarjeta activa
+                let activeIndex = -1;
+                cards.forEach((card, index) => {
+                    if (card.classList.contains('active')) {
+                        activeIndex = index;
+                    }
+                    // Limpiar cualquier clase 'adjacent' existente
+                    card.classList.remove('adjacent');
+                });
+
+                // Si encontramos una tarjeta activa, marcar las adyacentes
+                if (activeIndex !== -1) {
+                    // Marcar la tarjeta a la izquierda como adyacente (si existe)
+                    if (activeIndex > 0) {
+                        cards[activeIndex - 1].classList.add('adjacent');
+                    }
+
+                    // Marcar la tarjeta a la derecha como adyacente (si existe)
+                    if (activeIndex < cards.length - 1) {
+                        cards[activeIndex + 1].classList.add('adjacent');
+                    }
+                }
+            }
+
+            // Establecer la tarjeta #3 como activa al inicio (índice 2, ya que comenzamos desde 0)
+            const mainCardIndex = 2;
+            if (cards.length > mainCardIndex) {
+                cards[mainCardIndex].classList.add('active');
+                updateCards(); // Actualizar las clases de las tarjetas adyacentes
+            }
+
+            // Añadir manejadores de eventos para los clics en las tarjetas
+            cards.forEach(card => {
+                card.addEventListener('click', function () {
+                    // Quitar la clase active de todas las tarjetas
+                    cards.forEach(c => c.classList.remove('active'));
+
+                    // Añadir la clase active a la tarjeta clickeada
+                    this.classList.add('active');
+
+                    // Actualizar las clases de las tarjetas adyacentes
+                    updateCards();
+                });
+            });
+
+            // Actualizar las tarjetas al inicio
+            updateCards();
+        });
+    </script>
+</body>
+
+</html>

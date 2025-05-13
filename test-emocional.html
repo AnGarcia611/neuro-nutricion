@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Emocional</title>
+    <link rel="stylesheet" href="css/test-emocional.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Manrope:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <img src="imagenes/fondo_1.svg" alt="Fondo 1" class="background-figure background-figure-1">
+    <img src="imagenes/fondo_2.svg" alt="Fondo 2" class="background-figure background-figure-2">
+    <div class="hand-pointer-container">
+        <img src="imagenes/mano.png" alt="Mano apuntando" class="hand-pointer">
+    </div>
+    <div class="test-emocional-background">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+    </div>
+
+    <div class="test-container">
+        <!-- Título y subtítulo -->
+        <h1 class="test-title">TEST EMOCIONAL</h1>
+        <h2 class="test-subtitle">¿Cómo te has sentido últimamente?</h2>
+        <h2 class="test-subtitle">Selecciona una opción</h2>
+        <h2 class="test-subtitle">Recomendación</h2>
+        <p class="parrafo-recomendacion"></p>
+
+        <!-- Botón para reiniciar estado -->
+        <button class="reset-button">Volver al estado inicial</button>
+
+        <!-- Emojis de emociones -->
+        <div class="emojis-row">
+            <div class="emoji-option">
+                <div class="emoji-container">
+                    <img src="imagenes/estresado.png" alt="Estresado">
+                </div>
+                <span class="emoji-label">ESTRESADO/A</span>
+            </div>
+
+            <div class="emoji-option">
+                <div class="emoji-container">
+                    <img src="imagenes/triste.png" alt="Triste">
+                </div>
+                <span class="emoji-label">TRISTE</span>
+            </div>
+
+            <div class="emoji-option">
+                <div class="emoji-container">
+                    <img src="imagenes/alegre.png" alt="Alegre">
+                </div>
+                <span class="emoji-label">ALEGRE</span>
+            </div>
+        </div>
+
+        <!-- Íconos en la parte inferior -->
+        <div class="icons-grid">
+            <div class="icon-box purple">
+                <img src="iconos/icono_1.png" alt="Icono 1" class="icon">
+            </div>
+            <div class="icon-box pink">
+                <img src="iconos/icono_2.png" alt="Icono 2" class="icon">
+            </div>
+            <div class="icon-box blue">
+                <img src="iconos/icono_3.png" alt="Icono 3" class="icon">
+            </div>
+            <div class="icon-box orange">
+                <img src="iconos/icono_4.png" alt="Icono 4" class="icon">
+            </div>
+            <div class="icon-box black">
+                <img src="iconos/icono_5.svg" alt="Icono 5" class="icon">
+            </div>
+            <div class="icon-box white">
+                <img src="iconos/icono_6.png" alt="Icono 6" class="icon">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const emojis = document.querySelectorAll('.emoji-option');
+            const body = document.body;
+            const handPointer = document.querySelector('.hand-pointer');
+            const resetButton = document.querySelector('.reset-button');
+
+            const states = [
+                {
+                    name: 'initial', // Estado inicial
+                    backgroundColor: '#AE1B8F',
+                    subtitle: '¿Cómo te has sentido últimamente?',
+                    handImage: 'imagenes/mano.png',
+                    recommendation: '' // Sin recomendación para el estado inicial
+                },
+                {
+                    name: 'stressed', // Estado estresado
+                    backgroundColor: '#FF6F61',
+                    subtitle: 'El estrés prolongado puede alterar el equilibrio de tu sistema nervioso y afectar tu bienestar general.',
+                    handImage: 'imagenes/estresado.png',
+                    recommendation: 'Incorpora alimentos como avena, banano, nueces o chocolate negro e infusiones naturales. Estos ayudan a regular la serotonina y promover una sensación de calma.'
+                },
+                {
+                    name: 'sad', // Estado triste
+                    backgroundColor: '#42A5F5',
+                    subtitle: 'La falta de motivación y energía puede estar vinculada a deficiencias de nutrientes clave en tu dieta.',
+                    handImage: 'imagenes/triste.png',
+                    recommendation: ' Añade alimentos ricos en omega-3, vitamina D y antioxidantes como pescado azul, huevo y frutas rojas. Favorecen la claridad mental y el equilibrio emocional.'
+                },
+                {
+                    name: 'happy', // Estado alegre
+                    backgroundColor: '#66BB6A',
+                    subtitle: '¡Estás en sintonía con tu cuerpo y tu mente! Una buena alimentación puede ayudarte a mantener ese estado.',
+                    handImage: 'imagenes/alegre.png',
+                    recommendation: 'Continúa con una dieta balanceada que incluya frutas, verduras frescas y suficiente agua. Tu energía es el reflejo de tus hábitos.'
+                }
+            ];
+
+            resetButton.style.display = 'none'; // Ocultar el botón inicialmente
+
+            // Ocultar el subtítulo de recomendación en el estado inicial
+            const recommendationSubtitle = document.querySelector('.test-subtitle:nth-of-type(3)');
+            recommendationSubtitle.style.display = 'none';
+
+            emojis.forEach((emoji, index) => {
+                emoji.addEventListener('click', () => {
+                    const state = states[index + 1]; // Skip the initial state
+
+                    // Add rotate-out animation to the current hand pointer
+                    handPointer.classList.add('rotate-out');
+
+                    // Wait for the animation to complete before changing the image
+                    setTimeout(() => {
+                        handPointer.src = state.handImage;
+                        handPointer.classList.remove('rotate-out');
+                        handPointer.classList.add('rotate-in');
+                    }, 500); // Match the duration of the rotateOut animation
+
+                    // Remove the rotate-in class after the animation completes
+                    setTimeout(() => {
+                        handPointer.classList.remove('rotate-in');
+                    }, 1000); // Total duration of both animations
+
+                    body.style.backgroundColor = state.backgroundColor;
+                    document.querySelector('.test-subtitle').textContent = state.subtitle;
+                    resetButton.style.display = 'block'; // Mostrar el botón al seleccionar un estado
+
+                    // Mostrar el subtítulo de recomendación
+                    recommendationSubtitle.style.display = 'block';
+
+                    // Actualizar el contenido de parrafo-recomendacion
+                    document.querySelector('.parrafo-recomendacion').textContent = state.recommendation;
+
+                    // Ocultar "Selecciona una opción" en los estados no iniciales
+                    const selectOptionSubtitle = document.querySelectorAll('.test-subtitle')[1];
+                    selectOptionSubtitle.style.display = 'none';
+
+                    // Ocultar emojis-row en los estados no iniciales
+                    document.querySelector('.emojis-row').style.display = 'none';
+                });
+            });
+
+            resetButton.addEventListener('click', () => {
+                const initialState = states[0]; // Estado inicial
+
+                // Add rotate-out animation to the current hand pointer
+                handPointer.classList.add('rotate-out');
+
+                // Wait for the animation to complete before changing the image
+                setTimeout(() => {
+                    handPointer.src = initialState.handImage;
+                    handPointer.classList.remove('rotate-out');
+                    handPointer.classList.add('rotate-in');
+                }, 500); // Match the duration of the rotateOut animation
+
+                // Remove the rotate-in class after the animation completes
+                setTimeout(() => {
+                    handPointer.classList.remove('rotate-in');
+                }, 1000); // Total duration of both animations
+
+                body.style.backgroundColor = initialState.backgroundColor;
+                document.querySelector('.test-subtitle').textContent = initialState.subtitle;
+                resetButton.style.display = 'none'; // Ocultar el botón al volver al estado inicial
+
+                // Ocultar el subtítulo de recomendación en el estado inicial
+                recommendationSubtitle.style.display = 'none';
+
+                // Restablecer el contenido de parrafo-recomendacion
+                document.querySelector('.parrafo-recomendacion').textContent = initialState.recommendation;
+
+                // Mostrar "Selecciona una opción" en el estado inicial
+                const selectOptionSubtitle = document.querySelectorAll('.test-subtitle')[1];
+                selectOptionSubtitle.style.display = 'block';
+
+                // Mostrar emojis-row en el estado inicial
+                document.querySelector('.emojis-row').style.display = 'flex';
+            });
+        });
+    </script>
+</body>
+
+</html>
