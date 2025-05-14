@@ -11,6 +11,12 @@
 </head>
 
 <body>
+    <!-- Imágenes de estados emocionales -->
+    <div class="state-images">
+        <img src="imagenes/fondo_estresado.png" alt="Estresado" class="state-image estresado hidden">
+        <img src="imagenes/fondo_triste.png" alt="Triste" class="state-image triste hidden">
+        <img src="imagenes/fondo_alegre.png" alt="Alegre" class="state-image alegre hidden">
+    </div>
     <img src="imagenes/fondo_1.svg" alt="Fondo 1" class="background-figure background-figure-1">
     <img src="imagenes/fondo_2.svg" alt="Fondo 2" class="background-figure background-figure-2">
     <div class="hand-pointer-container">
@@ -31,7 +37,7 @@
         <p class="parrafo-recomendacion"></p>
 
         <!-- Botón para reiniciar estado -->
-        <button class="reset-button">Volver al estado inicial</button>
+        <button class="reset-button">VOLVER</button>
 
         <!-- Emojis de emociones -->
         <div class="emojis-row">
@@ -78,7 +84,6 @@
                 <img src="iconos/icono_6.png" alt="Ícono de mano" class="icon">
             </div>
         </div>
-
     </div>
 
     <script>
@@ -98,21 +103,21 @@
                 },
                 {
                     name: 'stressed', // Estado estresado
-                    backgroundColor: '#FF6F61',
+                    backgroundColor: '#EC6F2D',
                     subtitle: 'El estrés prolongado puede alterar el equilibrio de tu sistema nervioso y afectar tu bienestar general.',
                     handImage: 'imagenes/estresado.png',
                     recommendation: 'Incorpora alimentos como avena, banano, nueces o chocolate negro e infusiones naturales. Estos ayudan a regular la serotonina y promover una sensación de calma.'
                 },
                 {
                     name: 'sad', // Estado triste
-                    backgroundColor: '#42A5F5',
+                    backgroundColor: '#FA79B6 ',
                     subtitle: 'La falta de motivación y energía puede estar vinculada a deficiencias de nutrientes clave en tu dieta.',
                     handImage: 'imagenes/triste.png',
                     recommendation: ' Añade alimentos ricos en omega-3, vitamina D y antioxidantes como pescado azul, huevo y frutas rojas. Favorecen la claridad mental y el equilibrio emocional.'
                 },
                 {
                     name: 'happy', // Estado alegre
-                    backgroundColor: '#66BB6A',
+                    backgroundColor: '#2C9DFF  ',
                     subtitle: '¡Estás en sintonía con tu cuerpo y tu mente! Una buena alimentación puede ayudarte a mantener ese estado.',
                     handImage: 'imagenes/alegre.png',
                     recommendation: 'Continúa con una dieta balanceada que incluya frutas, verduras frescas y suficiente agua. Tu energía es el reflejo de tus hábitos.'
@@ -124,6 +129,12 @@
             // Ocultar el subtítulo de recomendación en el estado inicial
             const recommendationSubtitle = document.querySelector('.test-subtitle:nth-of-type(3)');
             recommendationSubtitle.style.display = 'none';
+
+            const stateImages = {
+                estresado: document.querySelector('.state-image.estresado'),
+                triste: document.querySelector('.state-image.triste'),
+                alegre: document.querySelector('.state-image.alegre')
+            };
 
             emojis.forEach((emoji, index) => {
                 emoji.addEventListener('click', () => {
@@ -160,6 +171,14 @@
 
                     // Ocultar emojis-row en los estados no iniciales
                     document.querySelector('.emojis-row').style.display = 'none';
+
+                    // Hide all state images
+                    Object.values(stateImages).forEach(img => img.classList.add('hidden'));
+
+                    // Show the corresponding state image
+                    if (index === 0) stateImages.estresado.classList.remove('hidden');
+                    if (index === 1) stateImages.triste.classList.remove('hidden');
+                    if (index === 2) stateImages.alegre.classList.remove('hidden');
                 });
             });
 
@@ -197,6 +216,9 @@
 
                 // Mostrar emojis-row en el estado inicial
                 document.querySelector('.emojis-row').style.display = 'flex';
+
+                // Hide all state images on reset
+                Object.values(stateImages).forEach(img => img.classList.add('hidden'));
             });
         });
     </script>

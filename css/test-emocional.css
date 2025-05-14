@@ -9,7 +9,7 @@ body {
 .background-figure {
     position: absolute;
     z-index: -1;
-    fill: #CC2D95;
+    fill: rgba(252, 74, 158, 0.38);
 }
 
 .background-figure-1 {
@@ -24,12 +24,24 @@ body {
     height: 90vh;
 }
 
+.test-container {
+
+    margin: 150px;
+
+    max-width: 550px;
+}
+
 .emoji-option {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 30px;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.emoji-option:hover {
+    transform: scale(1.5);
 }
 
 .emoji-container {
@@ -61,7 +73,6 @@ body {
     display: flex;
     justify-content: left;
     margin: 60px 0 80px;
-    margin-left: 150px;
 }
 
 .hand-pointer-container {
@@ -118,7 +129,6 @@ body {
     line-height: normal;
     text-transform: uppercase;
     margin-top: 300px;
-    margin-left: 150px;
     margin-bottom: 10px;
 }
 
@@ -130,9 +140,7 @@ body {
     font-weight: 400;
     line-height: normal;
     margin-bottom: 40px;
-    margin-left: 150px;
     margin-top: 10px;
-    width: 600px; /* Ajusta el ancho del subtítulo */
 }
 
 .icons-grid {
@@ -229,18 +237,22 @@ body {
 }
 
 .reset-button {
-    margin-left: 150px;
-    background: linear-gradient(90deg, #EA4E96 0%, #FF6EB1 100%);
+    background: #FE0778;
     color: #FFF;
     border: none;
     border-radius: 2px;
-    padding: 12px 32px;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 10px;
     cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 80px 22px 0px rgba(0, 0, 0, 0.00), 0px 51px 20px 0px rgba(0, 0, 0, 0.01), 0px 29px 17px 0px rgba(0, 0, 0, 0.05), 0px 13px 13px 0px rgba(0, 0, 0, 0.09), 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
     transition: background-color 0.3s ease, transform 0.3s ease;
     z-index: 1000; /* Asegura que el botón esté al frente */
+    font-family: Manrope;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: right; /* Alinea el texto a la derecha */
+    margin-left: auto; /* Empuja el botón hacia la derecha en su contenedor */
+    display: block; /* Asegura que el botón sea un bloque para aplicar el margen */
 }
 
 .reset-button:hover {
@@ -249,13 +261,28 @@ body {
 }
 
 .parrafo-recomendacion {
-    margin-left: 150px;
-    max-width: 600px;
     color: #FFF;
     font-family: Manrope;
     font-size: 26px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+}
+
+.state-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    display: none; /* Hidden by default */
+    z-index: -1; /* Place it above the body background but below other elements */
+}
+
+.state-image.hidden {
+    display: none;
+}
+
+.state-image:not(.hidden) {
+    display: block;
 }
 
