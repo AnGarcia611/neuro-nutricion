@@ -1,136 +1,28 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
-    height: 100vh; /* Ocupa todo el alto de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(to right, #3b3b98, #e55039);
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 /* Estilos simplificados para la sección principal de contenido */
 .content-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 20px;
     background: rgba(238, 222, 245, 0.35);
-    width: 90%;
     margin: auto;
     border-radius: 20px;
     box-sizing: border-box;
+    min-height: 90vh;
 }
-
-
-.content-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px; /* Espaciado entre los elementos */
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-.icons-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 35px; /* Espaciado entre los icono s */
-    flex-wrap: wrap; /* Permite que los iconos se ajusten en varias filas si es necesario */
-    /* position: absolute; */
-    bottom: 0;
-    width: 100%; /* Asegura que ocupe todo el ancho de la página */
-}
-
-.icon-box {
-    width: 90px;
-    height: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 15px; /* Ajuste para bordes más redondeados */
-    overflow: hidden;
-    box-shadow: -3px 26px 7px 0px rgba(0, 0, 0, 0.00), -2px 17px 7px 0px rgba(0, 0, 0, 0.01), -1px 9px 6px 0px rgba(0, 0, 0, 0.05), 0px 4px 4px 0px rgba(0, 0, 0, 0.09), 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
-
-.icon-box img {
-    width: 50%; /* Ajuste para que los íconos sean proporcionales */
-    height: 50%;
-    object-fit: contain;
-}
-
-.icon-box:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 37px 10px 0px rgba(0, 0, 0, 0.00), 0px 24px 10px 0px rgba(0, 0, 0, 0.01), 0px 13px 8px 0px rgba(0, 0, 0, 0.05), 0px 6px 6px 0px rgba(0, 0, 0, 0.09), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
-}
-
-.icon-box.purple {
-    background-color: #5E35B1; /* Color morado */
-}
-
-.icon-box.purple:hover {
-    background-color: #FE0578; /* Color rosa fuerte al hacer hover */
-}
-
-.icon-box.pink {
-    background-color: #EC407A; /* Color rosa */
-}
-
-.icon-box.pink:hover {
-    background-color: #560BA4; /* Color morado oscuro al hacer hover */
-}
-
-.icon-box.blue {
-    background-color: #42A5F5; /* Color azul */
-}
-
-.icon-box.blue:hover {
-    background-color: #ED6D2F; /* Color naranja al hacer hover */
-}
-
-.icon-box.orange {
-    background-color: #FF7043; /* Color naranja */
-}
-
-.icon-box.orange:hover {
-    background-color: #F61F82; /* Color rosa fuerte al hacer hover */
-}
-
-.icon-box.black {
-    background-color: #000000; /* Fondo negro */
-}
-
-.icon-box.black:hover {
-    background-color: #B3C5E7; /* Fondo azul claro al hacer hover */
-}
-
-.icon-box.black img {
-    content: url('../iconos/icono_5.svg'); /* Default white icon */
-}
-
-.icon-box.black:hover img {
-    content: url('../iconos/icono_5_negro.svg'); /* Black icon on hover */
-}
-
-.icon-box.white {
-    background-color: #FFFFFF; /* Color blanco */
-}
-
-.icon {
-    width: 35px;
-    height: 35px;
-}
-
-
 
 .info-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     max-width: 800px;
     text-align: center;
     margin-bottom: 30px;
@@ -143,18 +35,16 @@ body {
     color: #333;
 }
 
-/* Se eliminaron los estilos relacionados con la imagen en la sección de contenido */
 .image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 20px 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-/* Estilos para hacer la imagen con clase .illustration responsiva */
 .illustration {
-    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortarla */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
 }
 

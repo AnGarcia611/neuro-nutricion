@@ -1,0 +1,94 @@
+/* Estilos para los iconos reutilizables en la web */
+
+.icon-box {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px; /* Ajuste para bordes más redondeados */
+    overflow: hidden;
+    box-shadow: -3px 26px 7px 0px rgba(0, 0, 0, 0.00), -2px 17px 7px 0px rgba(0, 0, 0, 0.01), -1px 9px 6px 0px rgba(0, 0, 0, 0.05), 0px 4px 4px 0px rgba(0, 0, 0, 0.09), 0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.icon-box img {
+    width: 50%; /* Ajuste para que los íconos sean proporcionales */
+    height: 50%;
+    object-fit: contain;
+}
+
+.icon-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 37px 10px 0px rgba(0, 0, 0, 0.00), 0px 24px 10px 0px rgba(0, 0, 0, 0.01), 0px 13px 8px 0px rgba(0, 0, 0, 0.05), 0px 6px 6px 0px rgba(0, 0, 0, 0.09), 0px 1px 3px 0px rgba(0, 0, 0, 0.10);
+}
+
+.icons-grid {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 70px;
+    margin: 0 auto;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: none;
+    box-shadow: none;
+    width: 100%;
+    padding: 0;
+}
+
+.icon-box.inicio {
+    background-color: #5E35B1; /* Color morado */
+}
+
+.icon-box.inicio:hover {
+    background-color: #FE0578; /* Color rosa fuerte al hacer hover */
+}
+
+.icon-box.index {
+    background-color: #EC407A; /* Color rosa */
+}
+
+.icon-box.index:hover {
+    background-color: #560BA4; /* Color morado oscuro al hacer hover */
+}
+
+.icon-box.neuro-nutricion {
+    background-color: #B3C5E7; /* Color azul */
+}
+
+.icon-box.neuro-nutricion:hover {
+    background-color: #ED6D2F; /* Color naranja al hacer hover */
+}
+
+
+.icon-box.test-emocional {
+    background-color: #96EFFF; /* Color blanco */
+}
+
+.icon-box.test-emocional:hover {
+    background-color: #B3C5E7; /* Color naranja al hacer hover */
+}
+
+.icon-box.psicobioticos {
+    background-color: #FF7043; /* Color naranja */
+}
+
+.icon-box.psicobioticos:hover {
+    background-color: #F61F82; /* Color rosa fuerte al hacer hover */
+}
+
+.icon-box.contactanos {
+    background-color: #FF6B81; /* Fondo negro */
+}
+
+.icon-box.contactanos:hover {
+    background-color: #B3C5E7; /* Fondo azul claro al hacer hover */
+}
+
+
