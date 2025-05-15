@@ -1,38 +1,18 @@
 body {
     font-family: 'Nunito', sans-serif;
     margin: 0;
-    height: 100vh; /* Ocupa todo el alto de la ventana */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #3b3b98, #e55039);
-}
-
-/* Estilos para la sección principal de contenido */
-.content-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: linear-gradient(to bottom, #f4f4f4, #eaeaea);
-    width: 90%; /* Mantiene el ancho al 90% */
-    margin: auto; /* Centra horizontalmente */
-    box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño */
-    border-radius: 99px;
-    border: 3px solid rgba(255, 255, 255, 0.65);
-    background: rgba(238, 222, 245, 0.35);
-    margin: 0;
-    height: 90%;
+    padding: 0;
+    background: white;
 }
 
 .icons-grid {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 35px; /* Espaciado entre los icono s */
+    gap: 35px; /* Espaciado entre los iconos */
+    padding-bottom: 70px;
     flex-wrap: wrap; /* Permite que los iconos se ajusten en varias filas si es necesario */
-    /* position: absolute; */
+    position: absolute;
     bottom: 0;
     width: 100%; /* Asegura que ocupe todo el ancho de la página */
 }
@@ -116,33 +96,4 @@ body {
 .icon {
     width: 35px;
     height: 35px;
-}
-
-
-
-.info-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 800px;
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.text-container {
-    margin-bottom: 20px;
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: #333;
-}
-
-.image-container {
-    display: flex;
-    justify-content: center;
-}
-
-.illustration {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
 }
