@@ -8,22 +8,29 @@ body {
     background: linear-gradient(to right, #3b3b98, #e55039);
 }
 
-/* Estilos para la sección principal de contenido */
+/* Estilos simplificados para la sección principal de contenido */
 .content-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(to bottom, #f4f4f4, #eaeaea);
-    width: 90%; /* Mantiene el ancho al 90% */
-    margin: auto; /* Centra horizontalmente */
-    box-sizing: border-box; /* Incluye padding y border en el cálculo del tamaño */
-    border-radius: 99px;
-    border: 3px solid rgba(255, 255, 255, 0.65);
     background: rgba(238, 222, 245, 0.35);
-    margin: 0;
-    height: 90%;
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+
+.content-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Espaciado entre los elementos */
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .icons-grid {
@@ -136,13 +143,18 @@ body {
     color: #333;
 }
 
+/* Se eliminaron los estilos relacionados con la imagen en la sección de contenido */
 .image-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin: 20px 0;
 }
 
+/* Estilos para hacer la imagen con clase .illustration responsiva */
 .illustration {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain; /* Ajusta la imagen dentro del contenedor sin recortarla */
 }
+
