@@ -28,32 +28,117 @@
                 </div>
             </section>
             <div class="image-container">
-                <img src="imagenes/psico_img_1.png" alt="Ilustración de intestinos" class="illustration">
+                <img src="imagenes/psicobioticos/lupa_2.png" alt="Ilustración de intestinos" class="illustration">
             </div>
             <img src="iconos/icono_7.png" alt="Ícono flecha mano" class="icon-arrow-hand">
 
         </div>
     </main>
-        <div class="icons-grid">
-            <div class="icon-box inicio" onclick="window.location.href='index.html'">
-                <img src="iconos/icono_1.png" alt="Ícono de cerebro" class="icon">
-            </div>
-            <div class="icon-box index" onclick="window.location.href='index.html'">
-                <img src="iconos/icono_2.png" alt="Ícono de alimentación" class="icon">
-            </div>
-            <div class="icon-box neuro-nutricion" onclick="window.location.href='neuro-nutricion.html'">
-                <img src="iconos/icono_3.png" alt="Ícono de intestino" class="icon">
-            </div>
-            <div class="icon-box test-emocional" onclick="window.location.href='test-emocional.html'">
-                <img src="iconos/icono_6.png" alt="Ícono de mano" class="icon">
-            </div>
-            <div class="icon-box psicobioticos" onclick="window.location.href='psicobioticos.html'">
-                <img src="iconos/icono_4.png" alt="Ícono de agua" class="icon">
-            </div>
-            <div class="icon-box contactanos" onclick="window.location.href='contactanos.html'">
-                <img src="iconos/icono_5.png" alt="Ícono de información" class="icon">
-            </div>
+    <div class="icons-grid">
+        <div class="icon-box inicio" onclick="window.location.href='index.html'">
+            <img src="iconos/icono_1.png" alt="Ícono de cerebro" class="icon">
         </div>
+        <div class="icon-box index" onclick="window.location.href='index.html'">
+            <img src="iconos/icono_2.png" alt="Ícono de alimentación" class="icon">
+        </div>
+        <div class="icon-box neuro-nutricion" onclick="window.location.href='neuro-nutricion.html'">
+            <img src="iconos/icono_3.png" alt="Ícono de intestino" class="icon">
+        </div>
+        <div class="icon-box test-emocional" onclick="window.location.href='test-emocional.html'">
+            <img src="iconos/icono_6.png" alt="Ícono de mano" class="icon">
+        </div>
+        <div class="icon-box psicobioticos" onclick="window.location.href='psicobioticos.html'">
+            <img src="iconos/icono_4.png" alt="Ícono de agua" class="icon">
+        </div>
+        <div class="icon-box contactanos" onclick="window.location.href='contactanos.html'">
+            <img src="iconos/icono_5.png" alt="Ícono de información" class="icon">
+        </div>
+    </div>
+    <script>
+        // Lista de imágenes en la carpeta imagenes/psicobioticos
+        const images = [
+            'imagenes/psicobioticos/lupa_2.png',
+            'imagenes/psicobioticos/cerebro.png',
+            'imagenes/psicobioticos/lupa.png',
+            'imagenes/psicobioticos/mujer.png',
+            'imagenes/psicobioticos/organismos.png'
+        ];
+        let currentIndex = 0;
+        const illustration = document.querySelector('.illustration');
+        const arrowHand = document.querySelector('.icon-arrow-hand');
+
+        // Función para cambiar imagen con efecto deslizante
+        function changeImageWithSlide(nextIndex, direction) {
+            illustration.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s';
+            illustration.style.transform = `translateX(${direction === 'left' ? '-100%' : '100%'})`;
+            illustration.style.opacity = '0';
+            setTimeout(() => {
+                illustration.src = images[nextIndex];
+                illustration.style.transition = 'none';
+                illustration.style.transform = `translateX(${direction === 'left' ? '100%' : '-100%'})`;
+                setTimeout(() => {
+                    illustration.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s';
+                    illustration.style.transform = 'translateX(0)';
+                    illustration.style.opacity = '1';
+                }, 20);
+            }, 400);
+        }
+
+        arrowHand.addEventListener('click', () => {
+            const nextIndex = (currentIndex + 1) % images.length;
+            changeImageWithSlide(nextIndex, 'left');
+            currentIndex = nextIndex;
+        });
+
+        // Soporte para swipe/touch en la imagen
+        let startX = null;
+        illustration.addEventListener('touchstart', function (e) {
+            if (e.touches.length === 1) {
+                startX = e.touches[0].clientX;
+            }
+        });
+        illustration.addEventListener('touchend', function (e) {
+            if (startX === null) return;
+            let endX = e.changedTouches[0].clientX;
+            let diffX = endX - startX;
+            if (Math.abs(diffX) > 40) { // Umbral para swipe
+                let direction = diffX < 0 ? 'left' : 'right';
+                let nextIndex = diffX < 0
+                    ? (currentIndex + 1) % images.length
+                    : (currentIndex - 1 + images.length) % images.length;
+                changeImageWithSlide(nextIndex, direction);
+                currentIndex = nextIndex;
+            }
+            startX = null;
+        });
+
+        // Soporte para arrastrar con mouse en desktop
+        let mouseDown = false;
+        let mouseStartX = null;
+        illustration.addEventListener('mousedown', function (e) {
+            mouseDown = true;
+            mouseStartX = e.clientX;
+        });
+        illustration.addEventListener('mouseup', function (e) {
+            if (!mouseDown || mouseStartX === null) return;
+            let mouseEndX = e.clientX;
+            let diffX = mouseEndX - mouseStartX;
+            if (Math.abs(diffX) > 40) {
+                let direction = diffX < 0 ? 'left' : 'right';
+                let nextIndex = diffX < 0
+                    ? (currentIndex + 1) % images.length
+                    : (currentIndex - 1 + images.length) % images.length;
+                changeImageWithSlide(nextIndex, direction);
+                currentIndex = nextIndex;
+            }
+            mouseDown = false;
+            mouseStartX = null;
+        });
+        illustration.addEventListener('mouseleave', function () {
+            mouseDown = false;
+            mouseStartX = null;
+        });
+    </script>
 </body>
 
 </html>
