@@ -35,7 +35,7 @@ body {
 
 /* Main Content Styles */
 .main-content {
-    max-width: 1000px;
+    max-width: 80%;
     margin: 0 auto;
     width: 100%;
     overflow-y: auto;
@@ -66,12 +66,36 @@ body {
     width: 50%;
 }
 
-.contact-container h1 {
-    color: #FE0578;
+
+.contact-container h2 {
+    color: #E94E95;
+    font-family: 'Nunito', sans-serif;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
     text-align: left;
-    margin-bottom: 30px;
-    font-size: 2.5rem;
-    font-weight: bold;
+    margin: 0;
+}
+
+.contact-container h1 {
+    color: #E94E95;
+    font-family: 'Nunito', sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1;
+    text-align: left;
+    margin: 0 0 40px 0;
+}
+
+.contact-container p {
+    color: #4F2F87;
+    font-family: 'Manrope', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 .team-section {
@@ -165,21 +189,17 @@ body {
 }
 
 .about-text {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     color: #333;
     line-height: 1.6;
     font-size: 0.95rem;
 }
 
-.about-text p {
-    margin-bottom: 15px;
-}
-
 .contact-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: right  ;
     align-items: center;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .contact-us {
