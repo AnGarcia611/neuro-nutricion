@@ -18,42 +18,14 @@
     <div class="intro-overlay" id="introOverlay">
         <img src="video/bienvenida.gif" alt="Bienvenida" class="intro-gif">
     </div>
-
-    <!-- Contenido principal (inicialmente oculto) -->
-    <div id="mainContent" class="content-hidden">
-        <!-- Video de fondo -->
-        <video autoplay muted loop id="background-video">
-            <source src="video/Neuronas_video.mp4" type="video/mp4">
-            Tu navegador no soporta videos HTML5.
-        </video> <!-- Tarjeta de información -->
-        <div class="info-card">
-            <h1>NEURO NUTRICIÓN</h1>
-            <h2>Tu mente también se alimenta</h2>
-            <p>La forma en que te alimentas puede cambiar cómo te sientes, piensas y actúas. Tu estado emocional, tu
-                energía
-                diaria e incluso tu claridad mental están profundamente conectados con lo que pones en tu plato.</p>
-            <p>¿Sabías que ciertos alimentos estimulan neurotransmisores como la serotonina o la dopamina?</p>
-            <p>¿O que el estrés y la ansiedad pueden mejorar con pequeños cambios nutricionales?</p>
-            <p>La neuronutrición te invita a redescubrir el equilibrio desde adentro.</p>
-            <hr class="divider">
-            <a href="neuro-nutricion.html" class="comenzar-btn">COMENZAR</a>
-
-            <div class="card-footer">
-                <p>Alimentar tu mente es el primer paso para sentirte mejor.</p>
-            </div>
-        </div>
-    </div> <!-- Cierre del div mainContent -->
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const introOverlay = document.getElementById('introOverlay');
-            const mainContent = document.getElementById('mainContent');
-
-            // Mostrar el contenido principal después de 5 segundos
+            // Ocultar la introducción después de 5.5 segundos
             setTimeout(function () {
                 introOverlay.classList.add('hidden');
-                mainContent.classList.add('content-visible');
-            }, 5500); // 5500 segundos
+                window.location.href = 'inicio.html';
+            }, 5500);
         });
     </script>
 </body>
