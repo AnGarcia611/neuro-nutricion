@@ -17,15 +17,50 @@
     <!-- Overlay de introducción con fondo blanco -->
     <div class="intro-overlay" id="introOverlay">
         <img src="video/bienvenida.gif" alt="Bienvenida" class="intro-gif">
+        <!-- Audio de bienvenida -->
+        <audio id="introAudio" src="audio/principal.mp3" autoplay></audio>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            // Revisar si hay un valor diferente a cero en localStorage
+            let savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
             const introOverlay = document.getElementById('introOverlay');
-            // Ocultar la introducción después de 5.5 segundos
-            setTimeout(function () {
+            const introAudio = document.getElementById('introAudio');
+
+            // Si hay un valor guardado, iniciar el audio desde ahí
+            introAudio.addEventListener('loadedmetadata', function () {
+                if (savedAudioTime > 0 && savedAudioTime < introAudio.duration) {
+                    introAudio.currentTime = savedAudioTime;
+                }
+                console.log('Duración del audio:', introAudio.duration, 'segundos');
+            });
+
+            // Guardar el tiempo actual del audio en localStorage cada vez que cambia
+            introAudio.addEventListener('timeupdate', function () {
+                localStorage.setItem('audioTime', introAudio.currentTime);
+            });
+
+            // Repetir el audio al finalizar
+            introAudio.addEventListener('ended', function () {
+                introAudio.currentTime = 0;
+                introAudio.play();
+            });
+
+            // También guardar el tiempo justo antes de salir
+            function saveAudioTimeAndRedirect() {
+                // Guarda el tiempo actual ANTES de reiniciar el audio
+                localStorage.setItem('audioTime', introAudio.currentTime);
                 introOverlay.classList.add('hidden');
+                if (introAudio) {
+                    introAudio.pause();
+                    // No reiniciar currentTime aquí para evitar guardar 0 en beforeunload
+                    // introAudio.currentTime = 0;
+                }
                 window.location.href = 'inicio.html';
-            }, 5500);
+            }
+            // Ocultar la introducción después de 5.5 segundos
+            setTimeout(saveAudioTimeAndRedirect, 5500);
+
         });
     </script>
 </body>
