@@ -16,6 +16,8 @@
 </head>
 
 <body>
+    <!-- Agregar el audio de fondo -->
+    <audio id="pageAudio" src="audio/principal.mp3" autoplay></audio>
     <main class="neuro-nutricion-container">
         <div class="header-section">
             <h1 class="titulo-principal">¿Qué es la Neuro nutrición?</h1>
@@ -177,6 +179,32 @@
 
             // Actualizar las tarjetas al inicio
             updateCards();
+
+            // Audio de fondo
+            const pageAudio = document.getElementById('pageAudio');
+            let savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
+
+            pageAudio.addEventListener('loadedmetadata', function () {
+                // Solo asignar si el tiempo es válido y menor que la duración
+                if (savedAudioTime > 0 && savedAudioTime < pageAudio.duration) {
+                    pageAudio.currentTime = savedAudioTime;
+                    console.log('Restaurando audioTime:', savedAudioTime);
+                } else {
+                    console.log('audioTime no válido o es 0:', savedAudioTime);
+                }
+            });
+
+            pageAudio.addEventListener('timeupdate', function () {
+                // Guardar solo si el audio está reproduciéndose
+                if (!pageAudio.paused && !pageAudio.ended) {
+                    localStorage.setItem('audioTime', pageAudio.currentTime);
+                }
+            });
+
+            pageAudio.addEventListener('ended', function () {
+                pageAudio.currentTime = 0;
+                pageAudio.play();
+            });
         });
     </script>
 </body>

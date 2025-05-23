@@ -12,6 +12,9 @@
 </head>
 
 <body>
+    <!-- Audio de fondo -->
+    <audio id="pageAudio" src="audio/principal.mp3" autoplay></audio>
+
     <!-- Imágenes de estados emocionales -->
     <div class="state-images">
         <img src="imagenes/fondo_estresado.png" alt="Estresado" class="state-image estresado hidden">
@@ -221,6 +224,29 @@
 
                 // Hide all state images on reset
                 Object.values(stateImages).forEach(img => img.classList.add('hidden'));
+            });
+        });
+
+        // Audio de fondo
+        document.addEventListener('DOMContentLoaded', function () {
+            const pageAudio = document.getElementById('pageAudio');
+            let savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
+
+            pageAudio.addEventListener('loadedmetadata', function () {
+                if (savedAudioTime > 0 && savedAudioTime < pageAudio.duration) {
+                    pageAudio.currentTime = savedAudioTime;
+                }
+            });
+
+            pageAudio.addEventListener('timeupdate', function () {
+                if (!pageAudio.paused && !pageAudio.ended) {
+                    localStorage.setItem('audioTime', pageAudio.currentTime);
+                }
+            });
+
+            pageAudio.addEventListener('ended', function () {
+                pageAudio.currentTime = 0;
+                pageAudio.play();
             });
         });
     </script>
