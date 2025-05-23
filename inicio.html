@@ -11,6 +11,40 @@
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        /* Icono de sonido */
+        .sound-toggle {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            width: 5%;
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.2s;
+        }
+
+        .sound-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        .sound-toggle img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .sound-toggle .icon-off {
+            display: none;
+        }
+
+        .sound-toggle.muted .icon-on {
+            display: none;
+        }
+
+        .sound-toggle.muted .icon-off {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,8 +53,22 @@
         <source src="video/Neuronas_video.mp4" type="video/mp4">
         Tu navegador no soporta videos HTML5.
     </video>
+
+    <!-- Icono de sonido -->
+    <div class="sound-toggle" id="soundToggle" title="Silenciar/Activar sonido">
+        <!-- Icono ON (invertido) -->
+        <span class="icon-on">
+            <img src="iconos/sonido_index_off.png" alt="Sonido activado">
+        </span>
+        <!-- Icono OFF (invertido) -->
+        <span class="icon-off">
+            <img src="iconos/sonido_index_on.png" alt="Sonido desactivado">
+        </span>
+    </div>
+
     <!-- Audio de bienvenida (replica el comportamiento de index.html) -->
     <audio id="introAudio" src="audio/principal.mp3" autoplay></audio>
+
     <!-- Tarjeta de información -->
     <div class="info-card">
         <h1>NEURO NUTRICIÓN</h1>
@@ -40,6 +88,14 @@
         document.addEventListener('DOMContentLoaded', function () {
             let savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
             const introAudio = document.getElementById('introAudio');
+            const soundToggle = document.getElementById('soundToggle');
+
+            // Estado inicial del mute
+            let isMuted = localStorage.getItem('audioMuted') === 'true';
+            introAudio.muted = isMuted;
+            if (isMuted) {
+                soundToggle.classList.add('muted');
+            }
 
             introAudio.addEventListener('loadedmetadata', function () {
                 if (savedAudioTime > 0 && savedAudioTime < introAudio.duration) {
@@ -56,6 +112,14 @@
             introAudio.addEventListener('ended', function () {
                 introAudio.currentTime = 0;
                 introAudio.play();
+            });
+
+            // Controlar el sonido al hacer clic en el icono
+            soundToggle.addEventListener('click', function () {
+                isMuted = !isMuted;
+                introAudio.muted = isMuted;
+                localStorage.setItem('audioMuted', isMuted);
+                soundToggle.classList.toggle('muted', isMuted);
             });
         });
     </script>
