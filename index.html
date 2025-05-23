@@ -11,11 +11,57 @@
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        /* Icono de sonido */
+        .sound-toggle {
+            position: absolute;
+            top: 10%;
+            right: 10%;
+            width: 5%;
+            /* height: 100px; */
+            cursor: pointer;
+            z-index: 1001;
+            transition: transform 0.2s;
+        }
+
+        .sound-toggle:hover {
+            transform: scale(1.2);
+        }
+
+        .sound-toggle img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .sound-toggle .icon-off {
+            display: none;
+        }
+
+        .sound-toggle.muted .icon-on {
+            display: none;
+        }
+
+        .sound-toggle.muted .icon-off {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Overlay de introducción con fondo blanco -->
     <div class="intro-overlay" id="introOverlay">
+        <!-- Icono de sonido con las nuevas imágenes -->
+        <div class="sound-toggle" id="soundToggle" title="Silenciar/Activar sonido">
+            <!-- Icono ON (invertido) -->
+            <span class="icon-on">
+                <img src="iconos/sonido_index_off.png" alt="Sonido activado">
+            </span>
+            <!-- Icono OFF (invertido) -->
+            <span class="icon-off">
+                <img src="iconos/sonido_index_on.png" alt="Sonido desactivado">
+            </span>
+        </div>
         <img src="video/bienvenida.gif" alt="Bienvenida" class="intro-gif">
         <!-- Audio de bienvenida -->
         <audio id="introAudio" src="audio/principal.mp3" autoplay></audio>
@@ -26,6 +72,15 @@
             let savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
             const introOverlay = document.getElementById('introOverlay');
             const introAudio = document.getElementById('introAudio');
+            // Icono de sonido
+            const soundToggle = document.getElementById('soundToggle');
+
+            // Estado inicial del mute
+            let isMuted = localStorage.getItem('audioMuted') === 'true';
+            introAudio.muted = isMuted;
+            if (isMuted) {
+                soundToggle.classList.add('muted');
+            }
 
             // Si hay un valor guardado, iniciar el audio desde ahí
             introAudio.addEventListener('loadedmetadata', function () {
@@ -44,6 +99,14 @@
             introAudio.addEventListener('ended', function () {
                 introAudio.currentTime = 0;
                 introAudio.play();
+            });
+
+            // Controlar el sonido al hacer clic en el icono
+            soundToggle.addEventListener('click', function () {
+                isMuted = !isMuted;
+                introAudio.muted = isMuted;
+                localStorage.setItem('audioMuted', isMuted);
+                soundToggle.classList.toggle('muted', isMuted);
             });
 
             // También guardar el tiempo justo antes de salir
