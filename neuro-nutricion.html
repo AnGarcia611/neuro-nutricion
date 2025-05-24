@@ -24,6 +24,27 @@
             transition: transform 0.2s;
         }
 
+        /* Mobile sound toggle */
+        @media (max-width: 480px) {
+            .sound-toggle {
+                top: 15px;
+                right: 15px;
+                width: 12%;
+                min-width: 40px;
+                max-width: 60px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .sound-toggle {
+                top: 25px;
+                right: 25px;
+                width: 8%;
+                min-width: 50px;
+                max-width: 70px;
+            }
+        }
+
         .sound-toggle:hover {
             transform: scale(1.2);
         }
@@ -171,7 +192,6 @@
             </div>
         </div>
     </main>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const cards = document.querySelectorAll('.card');
@@ -191,9 +211,7 @@
                 pageAudio.muted = isMuted;
                 localStorage.setItem('audioMuted', isMuted);
                 soundToggle.classList.toggle('muted', isMuted);
-            });
-
-            // Función para actualizar las clases de las tarjetas
+            });            // Función para actualizar las clases de las tarjetas
             function updateCards() {
                 // Encontrar el índice de la tarjeta activa
                 let activeIndex = -1;
@@ -205,8 +223,8 @@
                     card.classList.remove('adjacent');
                 });
 
-                // Si encontramos una tarjeta activa, marcar las adyacentes
-                if (activeIndex !== -1) {
+                // Si encontramos una tarjeta activa, marcar las adyacentes (solo en desktop)
+                if (activeIndex !== -1 && window.innerWidth > 768) {
                     // Marcar la tarjeta a la izquierda como adyacente (si existe)
                     if (activeIndex > 0) {
                         cards[activeIndex - 1].classList.add('adjacent');
@@ -219,29 +237,84 @@
                 }
             }
 
-            // Establecer la tarjeta #3 como activa al inicio (índice 2, ya que comenzamos desde 0)
+            // Variable para controlar el timeout del hover
+            let hoverTimeout;// Establecer la tarjeta #3 como activa al inicio (índice 2, ya que comenzamos desde 0)
             const mainCardIndex = 2;
             if (cards.length > mainCardIndex) {
                 cards[mainCardIndex].classList.add('active');
                 updateCards(); // Actualizar las clases de las tarjetas adyacentes
-            }
+            }            // Para dispositivos de escritorio, volver a la card principal cuando el mouse sale del contenedor
+            const cardsContainer = document.querySelector('.cards-container');
+            if (!('ontouchstart' in window) && cardsContainer) {
+                cardsContainer.addEventListener('mouseleave', function () {
+                    // Limpiar cualquier timeout pendiente
+                    clearTimeout(hoverTimeout);
 
-            // Añadir manejadores de eventos para los clics en las tarjetas
-            cards.forEach(card => {
-                card.addEventListener('click', function () {
-                    // Quitar la clase active de todas las tarjetas
-                    cards.forEach(c => c.classList.remove('active'));
+                    // Añadir un pequeño delay antes de volver a la card principal
+                    hoverTimeout = setTimeout(() => {
+                        // Quitar active de todas las cards
+                        cards.forEach(c => c.classList.remove('active'));
 
-                    // Añadir la clase active a la tarjeta clickeada
-                    this.classList.add('active');
-
-                    // Actualizar las clases de las tarjetas adyacentes
-                    updateCards();
+                        // Volver a activar la card principal
+                        if (cards.length > mainCardIndex) {
+                            cards[mainCardIndex].classList.add('active');
+                            updateCards();
+                        }
+                    }, 100);
                 });
+            }            // Añadir manejadores de eventos para hover en las tarjetas (solo en desktop)
+            cards.forEach(card => {
+                // Para dispositivos de escritorio (hover)
+                if (!('ontouchstart' in window)) {
+                    card.addEventListener('mouseenter', function () {
+                        // Limpiar cualquier timeout pendiente
+                        clearTimeout(hoverTimeout);
+
+                        // Quitar la clase active de todas las tarjetas
+                        cards.forEach(c => c.classList.remove('active'));
+
+                        // Añadir la clase active a la tarjeta en hover
+                        this.classList.add('active');
+
+                        // Actualizar las clases de las tarjetas adyacentes
+                        updateCards();
+                    });
+                } else {
+                    // Para dispositivos móviles, mantener el comportamiento de click
+                    card.addEventListener('click', function () {
+                        // Quitar la clase active de todas las tarjetas
+                        cards.forEach(c => c.classList.remove('active'));
+
+                        // Añadir la clase active a la tarjeta clickeada
+                        this.classList.add('active');
+
+                        // Actualizar las clases de las tarjetas adyacentes
+                        updateCards();
+                    });
+
+                    // Mejorar la experiencia táctil en móviles
+                    card.addEventListener('touchstart', function () {
+                        this.style.transform = 'scale(0.98)';
+                    });
+
+                    card.addEventListener('touchend', function () {
+                        setTimeout(() => {
+                            this.style.transform = '';
+                        }, 100);
+                    });
+                }
             });
 
             // Actualizar las tarjetas al inicio
             updateCards();
+
+            // Actualizar layout en cambio de orientación
+            window.addEventListener('orientationchange', function () {
+                setTimeout(updateCards, 100);
+            });
+
+            // Actualizar layout en resize
+            window.addEventListener('resize', updateCards);
 
             // Audio de fondo
             let savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
