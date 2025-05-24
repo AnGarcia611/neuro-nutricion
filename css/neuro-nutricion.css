@@ -412,4 +412,69 @@ body {
     }
 }
 
+/* Keyframes for entrance animations */
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation classes for elements */
+.animate-title {
+    animation: fadeInDown 1s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-description {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.animate-cards {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.animate-sound-toggle {
+    animation: scaleIn 1s ease-out forwards;
+    animation-delay: 0.2s;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.animate-icons-grid {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.9s;
+    opacity: 0;
+}
+
 

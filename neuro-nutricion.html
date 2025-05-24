@@ -22,6 +22,10 @@
             cursor: pointer;
             z-index: 1001;
             transition: transform 0.2s;
+            animation: scaleIn 1s ease-out forwards;
+            animation-delay: 0.2s;
+            transform: scale(0);
+            opacity: 0;
         }
 
         /* Mobile sound toggle */
@@ -87,11 +91,12 @@
 
     <main class="neuro-nutricion-container">
         <div class="header-section">
-            <h1 class="titulo-principal">¿Qué es la Neuro nutrición?</h1>
-            <p class="description">Alimenta tu mente desde el plato. La Neuronutrición estudia cómo lo que comes impacta
+            <h1 class="titulo-principal animate-title">¿Qué es la Neuro nutrición?</h1>
+            <p class="description animate-description">Alimenta tu mente desde el plato. La Neuronutrición estudia cómo
+                lo que comes impacta
                 tu salud mental y emocional.</p>
         </div>
-        <div class="cards-container">
+        <div class="cards-container animate-cards">
             <div class="card intestino-card">
                 <img src="imagenes/imagen_1.png" alt="Microbiota intestinal">
                 <div class="card-info">
@@ -171,7 +176,7 @@
             </div>
         </div>
 
-        <div class="icons-grid">
+        <div class="icons-grid animate-icons-grid">
             <div class="icon-box inicio" onclick="window.location.href='index.html'">
                 <img src="iconos/icono_1.png" alt="Ícono de cerebro" class="icon">
             </div>
