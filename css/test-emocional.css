@@ -193,3 +193,22 @@ body {
     display: block;
 }
 
+/* Animación de entrada para el icono de sonido */
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.sound-toggle .icon-on {
+    animation: scaleIn 1s ease-out forwards;
+    animation-delay: 0.2s;
+    transform: scale(0);
+    opacity: 0;
+}
+
