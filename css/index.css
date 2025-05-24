@@ -56,22 +56,45 @@ body {
 /* Info card styles */
 .info-card {
     position: fixed;
-    bottom: 150px;
-    left: 130px;
-    max-width: 680px;
+    bottom: 10vh; /* Cambiado de píxeles fijos a porcentaje del viewport */
+    left: 5%;  /* Ajustado a porcentaje en lugar de píxeles fijos */
+    width: 90%; /* Ancho relativo para pantallas pequeñas */
+    max-width: 680px; /* Mantener el máximo para pantallas grandes */
     background-color: rgba(74, 20, 140, 0.75);
     color: #ffffff;
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     z-index: 100;
-    max-height: 85vh;
+    max-height: 70vh; /* Ajustar la altura máxima al viewport */
     overflow-y: auto;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-family: 'Nunito', sans-serif;
-    margin-right: 50px;
+    margin-right: 0; /* Eliminar margen fijo */
+    box-sizing: border-box; /* Para que el padding no afecte el ancho total */
+}
+
+/* Media queries para responsividad */
+@media (min-width: 768px) {
+    /* Tablets y dispositivos medianos */
+    .info-card {
+        left: 10%;
+        width: 80%;
+        padding: 25px;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Pantallas de escritorio */
+    .info-card {
+        bottom: 150px;
+        left: 130px;
+        width: auto;
+        margin-right: 50px;
+        padding: 30px;
+    }
 }
 
 .info-card h1 {
