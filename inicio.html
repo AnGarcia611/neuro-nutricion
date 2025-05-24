@@ -10,102 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
-    <style>
-        /* Icono de sonido */
-        .sound-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            z-index: 1001;
-            transition: transform 0.2s;
-        }
-
-        .sound-toggle:hover {
-            transform: scale(1.2);
-        }
-
-        .sound-toggle img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .sound-toggle .icon-off {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-on {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-off {
-            display: block;
-        }
-
-        /* Media queries para el icono de sonido */
-        @media (min-width: 768px) {
-            .sound-toggle {
-                top: 50px;
-                right: 50px;
-                height: 80px;
-                width: auto;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .sound-toggle {
-                top: 100px;
-                right: 100px;
-                height: 80px;
-                width: auto;
-            }
-        }
-
-        /* Icono adicional en la esquina superior izquierda */
-        .corner-icon {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: auto;
-            height: 40px;
-            z-index: 1001;
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .corner-icon:hover {
-            transform: scale(1.2);
-        }
-
-        .corner-icon img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        /* Media queries para el icono adicional */
-        @media (min-width: 768px) {
-            .corner-icon {
-                top: 50px;
-                left: 50px;
-                height: 40px;
-                width: auto;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .corner-icon {
-                top: 100px;
-                left: 100px;
-                height: 80px;
-                width: auto;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/inicio.css">
 </head>
 
 <body>
@@ -115,24 +20,22 @@
         Tu navegador no soporta videos HTML5.
     </video>
 
-    <!-- Icono adicional en la esquina superior derecha -->
+    <!-- Icono de regreso al inicio -->
     <a href="index.html" class="corner-icon">
-        <img src="iconos/icono_1_blanco.png" alt="Icono">
+        <img src="iconos/icono_1_blanco.png" alt="Volver al inicio">
     </a>
 
     <!-- Icono de sonido -->
     <div class="sound-toggle" id="soundToggle" title="Silenciar/Activar sonido">
-        <!-- Icono ON (invertido) -->
         <span class="icon-on">
             <img src="iconos/sonido_index_off_blanco.png" alt="Sonido activado">
         </span>
-        <!-- Icono OFF (invertido) -->
         <span class="icon-off">
             <img src="iconos/sonido_index_on.png" alt="Sonido desactivado">
         </span>
     </div>
 
-    <!-- Audio de bienvenida (replica el comportamiento de index.html) -->
+    <!-- Audio de bienvenida -->
     <audio id="introAudio" src="audio/principal.mp3" autoplay></audio>
 
     <!-- Tarjeta de información -->
@@ -150,6 +53,7 @@
             <p>Alimentar tu mente es el primer paso para sentirte mejor.</p>
         </div>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             let savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
@@ -167,7 +71,6 @@
                 if (savedAudioTime > 0 && savedAudioTime < introAudio.duration) {
                     introAudio.currentTime = savedAudioTime;
                 }
-                // console.log('Duración del audio:', introAudio.duration, 'segundos');
             });
 
             introAudio.addEventListener('timeupdate', function () {
