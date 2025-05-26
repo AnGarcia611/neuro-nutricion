@@ -21,8 +21,9 @@ body {
 }
 
 .logo {
-    width: 180px;
+    
     height: auto;
+    width: auto;
 }
 
 .header-divider {
@@ -202,27 +203,42 @@ body {
 }
 
 .contact-us {
-    color: #FE0578;
+    color: #E94E95;
     font-weight: 600;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 2.2rem;
+    margin-right: 40px;
 }
 
 .social-icons {
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .social-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     font-weight: bold;
-    border: 1px solid #ddd;
+    border: 2px solid #B71B5A;
+    background: #FAFAFA;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.social-icon i {
+    font-size: 20px;
+    color: #B71B5A;
+    transition: color 0.2s;
+}
+
+.social-icon:hover {
+    background: #F8EAF2;
+    box-shadow: 0 2px 8px rgba(183,27,90,0.08);
 }
 
 .facebook {
@@ -249,6 +265,7 @@ body {
     margin: 10px 0;
     display: flex;
     justify-content: center;
+    
 }
 
 .heart-brain-logo img {
