@@ -12,6 +12,7 @@
 > - No modificar el contenido textual ni las imágenes.
 > - No eliminar archivos originales hasta que la migración esté verificada.
 > - Documentar cualquier cambio que sea imprescindible para la compatibilidad, pero evitar cambios innecesarios.
+> - **Ignorar funcionalidades de touch, swipe y optimizaciones móviles específicas durante la migración inicial. Enfocarse en la funcionalidad de escritorio básica.**
 > - El objetivo es que el usuario final no perciba ninguna diferencia entre la versión original y la migrada.
 
 ## 1. Preparación
