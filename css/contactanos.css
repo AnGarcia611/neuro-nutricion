@@ -114,8 +114,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    align-items: end;    
-    position: relative;
+    align-items: centers;    
+    position: relatives;
     margin-bottom: 20px;    
 }
 
@@ -174,17 +174,16 @@ body {
 }
 
 .member-name {
-    background: linear-gradient(90deg, #DAC4E6 0%, #4F2F87 100%);
+    background: #4F2F87;
     color: #FFF;
     border-radius: 5px;
     font-weight: 600;
-    width: 100%;
     text-align: center;
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
     font-style: normal;
     line-height: normal;
-    /* padding : 10px 40px; */
+    padding : 5px ;
 
 }
 
