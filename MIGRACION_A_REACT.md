@@ -1,5 +1,19 @@
 # Migración del Proyecto a React (manteniendo despliegue en GitHub Pages)
 
+> **NOTAS IMPORTANTES PARA LA MIGRACIÓN AUTOMATIZADA**
+>
+> - No modificar ni mejorar la lógica, estilos o estructura visual más allá de lo necesario para que funcione en React.
+> - Mantener los estilos, animaciones y recursos exactamente como en el proyecto original.
+> - No cambiar nombres de clases, ids, ni rutas de recursos salvo que sea estrictamente necesario para compatibilidad.
+> - Migrar scripts y lógica JS tal cual, usando hooks solo para replicar el comportamiento original.
+> - No agregar ni quitar funcionalidades, ni optimizar código.
+> - Si hay dudas sobre la conversión de algún fragmento, priorizar la fidelidad visual y funcional.
+> - Mantener la estructura de navegación y rutas igual, usando HashRouter.
+> - No modificar el contenido textual ni las imágenes.
+> - No eliminar archivos originales hasta que la migración esté verificada.
+> - Documentar cualquier cambio que sea imprescindible para la compatibilidad, pero evitar cambios innecesarios.
+> - El objetivo es que el usuario final no perciba ninguna diferencia entre la versión original y la migrada.
+
 ## 1. Preparación
 
 - Verifica que tienes acceso de escritura al repositorio y permisos para configurar GitHub Pages.
