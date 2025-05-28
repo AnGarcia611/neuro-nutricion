@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import TextPressure from './ui/TextPressure';
 
 function Contactanos() {
   const navigate = useNavigate();
@@ -103,8 +104,8 @@ function Contactanos() {
         <audio id="pageAudio" src="audio/principal.mp3" autoPlay></audio>
 
         {/* Icono de sonido */}
-        <div 
-          className={`sound-toggle ${isMuted ? 'muted' : ''}`} 
+        <div
+          className={`sound-toggle ${isMuted ? 'muted' : ''}`}
           onClick={toggleSound}
           title="Silenciar/Activar sonido"
         >
@@ -154,7 +155,20 @@ function Contactanos() {
               </div>
               <div className="right-column">
                 <h2>Nuestra</h2>
-                <h1>Historia</h1>
+                <div style={{ position: 'relative', height: '90px', marginBottom: '10px' }}>
+                  <TextPressure
+                    text="Historia"
+                    flex={true}
+                    alpha={false}
+                    stroke={false}
+                    width={true}
+                    weight={true}
+                    italic={true}
+                    textColor="#222"
+                    strokeColor="#ff0000"
+                    minFontSize={48}
+                  />
+                </div>
                 <div className="about-text">
                   <p>Diseñadoras digitales y multimedia comprometidas con la creación de experiencias emocionales
                     e interactivas que transforman la forma en que abordamos nuestra salud. A nivel sensorial,
