@@ -6,6 +6,13 @@ import TestEmocional from './components/TestEmocional';
 import Psicobioticos from './components/Psicobioticos';
 import Contactanos from './components/Contactanos';
 import './App.css';
+import './styles/contactanos.css';
+import './styles/footer.css';
+import './styles/index.css';
+import './styles/inicio.css';
+import './styles/neuro-nutricion.css';
+import './styles/psicobioticos.css';
+import './styles/test-emocional.css';
 
 function App() {
   return (

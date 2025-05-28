@@ -7,7 +7,7 @@ function Inicio() {
   useEffect(() => {
     const savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
     const introAudio = document.getElementById('introAudio');
-    
+
     // Estado inicial del mute
     const audioMuted = localStorage.getItem('audioMuted') === 'true';
     setIsMuted(audioMuted);
@@ -69,8 +69,8 @@ function Inicio() {
       </Link>
 
       {/* Icono de sonido */}
-      <div 
-        className={`sound-toggle ${isMuted ? 'muted' : ''}`} 
+      <div
+        className={`sound-toggle ${isMuted ? 'muted' : ''}`}
         onClick={toggleSound}
         title="Silenciar/Activar sonido"
       >
@@ -89,8 +89,8 @@ function Inicio() {
       <div className="info-card">
         <h1>NEURO NUTRICIÓN</h1>
         <h2>Tu mente también se alimenta</h2>
-        <p>La forma en que te alimentas puede cambiar cómo te sientes, piensas y actúas. Tu estado emocional, tu energía 
-        diaria e incluso tu claridad mental están profundamente conectados con lo que pones en tu plato.</p>
+        <p>La forma en que te alimentas puede cambiar cómo te sientes, piensas y actúas. Tu estado emocional, tu energía
+          diaria e incluso tu claridad mental están profundamente conectados con lo que pones en tu plato.</p>
         <p>¿Sabías que ciertos alimentos estimulan neurotransmisores como la serotonina o la dopamina?</p>
         <p>¿O que el estrés y la ansiedad pueden mejorar con pequeños cambios nutricionales?</p>
         <p>La neuronutrición te invita a redescubrir el equilibrio desde adentro.</p>

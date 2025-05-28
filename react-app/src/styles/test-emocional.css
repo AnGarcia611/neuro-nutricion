@@ -1,0 +1,214 @@
+/* Moved inline styles from test-emocional.html */
+body {
+    overflow-x: hidden;
+    background-color: #AE1B8F;
+    padding: 0;
+    margin: 0;
+}
+
+.background-figure {
+    position: absolute;
+    z-index: -1;
+    fill: rgba(252, 74, 158, 0.38);
+}
+
+.background-figure-1 {
+    top: 0;
+    left: 0;
+    height: 90vh;
+}
+
+.background-figure-2 {
+    bottom: 0;
+    right: 0;
+    height: 90vh;
+}
+
+.test-container {
+
+    margin: 150px;
+
+    max-width: 550px;
+}
+
+.emoji-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.emoji-option:hover {
+    transform: scale(1.5);
+}
+
+.emoji-container {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.emoji-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.emoji-label {
+    color: #FFF;
+    font-family: Nunito;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.emojis-row {
+    display: flex;
+    justify-content: left;
+    margin: 60px 0 80px;
+}
+
+.hand-pointer-container {
+    height: 600px; /* Tamaño fijo del contenedor */
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.hand-pointer {
+    transform: rotate(0deg);
+    height: 100%;
+}
+
+@keyframes rotateOut {
+    0% {
+        transform: rotate(0deg) translateX(0); /* Posición inicial: las 12 */
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(90deg) translateX(200%); /* Posición final: las 3 (fuera de la pantalla) */
+        opacity: 0;
+    }
+}
+
+@keyframes rotateIn {
+    0% {
+        transform: rotate(-90deg) translateX(-200%); /* Posición inicial: las 9 (fuera de la pantalla) */
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg) translateX(0); /* Posición final: las 12 */
+        opacity: 1;
+    }
+}
+
+.hand-pointer.rotate-out {
+    animation: rotateOut 0.5s ease forwards;
+}
+
+.hand-pointer.rotate-in {
+    animation: rotateIn 0.5s ease forwards;
+}
+
+.test-title {
+    color: #FFF;
+    font-family: Nunito;
+    font-size: 58px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: 300px;
+    margin-bottom: 10px;
+}
+
+.test-subtitle {
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.reset-button {
+    background: #FE0778;
+    color: #FFF;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0px 80px 22px 0px rgba(0, 0, 0, 0.00), 0px 51px 20px 0px rgba(0, 0, 0, 0.01), 0px 29px 17px 0px rgba(0, 0, 0, 0.05), 0px 13px 13px 0px rgba(0, 0, 0, 0.09), 0px 3px 7px 0px rgba(0, 0, 0, 0.10);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Asegura que el botón esté al frente */
+    font-family: Manrope;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    text-align: right; /* Alinea el texto a la derecha */
+    margin-left: auto; /* Empuja el botón hacia la derecha en su contenedor */
+    display: block; /* Asegura que el botón sea un bloque para aplicar el margen */
+}
+
+.reset-button:hover {
+    background: linear-gradient(90deg, #FE0578 0%, #FE0678 100%);
+    text-decoration: underline;
+}
+
+.parrafo-recomendacion {
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.state-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    display: none; /* Hidden by default */
+    z-index: -1; /* Place it above the body background but below other elements */
+}
+
+.state-image.hidden {
+    display: none;
+}
+
+.state-image:not(.hidden) {
+    display: block;
+}
+
+/* Animación de entrada para el icono de sonido */
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.sound-toggle .icon-on {
+    animation: scaleIn 1s ease-out forwards;
+    animation-delay: 0.2s;
+    transform: scale(0);
+    opacity: 0;
+}
+
