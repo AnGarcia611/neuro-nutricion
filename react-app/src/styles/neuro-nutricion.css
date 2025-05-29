@@ -3,13 +3,16 @@
 html, body {
     margin: 0;
     padding: 0;
+    background: #fff !important;
+    background-color: #fff !important;
 }
 
 .neuro-nutricion-container {
     font-family: 'Manrope', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: #fff !important;
+    background-color: #fff !important;
     position: relative;
     /* Cambiado overflow de hidden a auto para permitir scroll */
     overflow: auto;
@@ -65,7 +68,7 @@ html, body {
 
 .description {
     font-family: 'Manrope', sans-serif;
-    color: #333;
+    color: #4B4C54;
     line-height: 1.6;
     font-size: clamp(14px, 2.5vw, 16px);
     max-width: 600px;
@@ -386,11 +389,11 @@ html, body {
 /* Mejoras para modo oscuro */
 @media (prefers-color-scheme: dark) {
     .neuro-nutricion-container {
-        background-color: #1a1a1a;
+        background-color: #fff;
     }
     
     .neuro-nutricion-container .description {
-        color: #e0e0e0;
+        color: #4B4C54;
     }
     
     .neuro-nutricion-container .titulo-principal {
