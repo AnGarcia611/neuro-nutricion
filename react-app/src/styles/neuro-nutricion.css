@@ -123,6 +123,7 @@ html, body {
     min-width: 120px;
     transform-origin: center center;
     will-change: transform, height, max-width;
+    padding: 0 !important;
 }
 
 /* Mobile card styles */
@@ -133,6 +134,7 @@ html, body {
         height: 320px;
         flex: none;
         min-width: auto;
+        padding: 0 !important;
     }
 }
 
@@ -222,7 +224,7 @@ html, body {
 
 @media (min-width: 481px) and (max-width: 768px) {
     .card-info {
-        padding: 18px;
+        padding: 0px;
     }
 }
 
@@ -323,6 +325,7 @@ html, body {
     /* Mejor spacing para touch interfaces */
     .card {
         margin-bottom: 10px;
+        padding: 0;
     }
     
     /* Mejor visibilidad del contenido en móviles */
@@ -330,6 +333,7 @@ html, body {
         transform: translateY(0);
         position: relative;
         background-color: rgba(98, 71, 223, 0.95);
+        padding: 0;
     }
     
     /* Asegurar que todas las cards muestren su info en móviles */
@@ -349,6 +353,7 @@ html, body {
     
     .card {
         max-width: 140px;
+        padding: 0px;
     }
     
     .card.adjacent {

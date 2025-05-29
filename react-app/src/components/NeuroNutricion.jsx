@@ -107,7 +107,10 @@ function NeuroNutricion() {
     };
 
     const handleTimeUpdate = () => {
-      localStorage.setItem('audioTime', pageAudio.currentTime);
+      // Guardar solo si el audio está reproduciéndose
+      if (!pageAudio.paused && !pageAudio.ended) {
+        localStorage.setItem('audioTime', pageAudio.currentTime);
+      }
     };
 
     const handleEnded = () => {
