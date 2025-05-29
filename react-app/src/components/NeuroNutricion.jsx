@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/neuro-nutricion.css';
 
 function NeuroNutricion() {
   const navigate = useNavigate();
@@ -146,91 +147,12 @@ function NeuroNutricion() {
 
   return (
     <>
-      <style>{`
-        /* Icono de sonido */
-        .sound-toggle {
-            position: absolute;
-            top: 100px;
-            right: 100px;
-            width: 5%;
-            cursor: pointer;
-            z-index: 1001;
-            transition: transform 0.2s;
-            animation: scaleIn 1s ease-out forwards;
-            animation-delay: 0.2s;
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        /* Mobile sound toggle */
-        @media (max-width: 480px) {
-            .sound-toggle {
-                top: 15px;
-                right: 15px;
-                width: 12%;
-                min-width: 40px;
-                max-width: 60px;
-            }
-        }
-
-        @media (min-width: 481px) and (max-width: 768px) {
-            .sound-toggle {
-                top: 25px;
-                right: 25px;
-                width: 8%;
-                min-width: 50px;
-                max-width: 70px;
-            }
-        }
-
-        .sound-toggle:hover {
-            transform: scale(1.2);
-        }
-
-        .sound-toggle img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .sound-toggle .icon-off {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-on {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-off {
-            display: block;
-        }
-
-        /* Animación de entrada para el icono de sonido */
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .sound-toggle .icon-on {
-            animation: scaleIn 1s ease-out forwards;
-            animation-delay: 1s;
-            transform: scale(0);
-            opacity: 0;
-        }
-      `}</style>
-
       {/* Agregar el audio de fondo */}
       <audio id="pageAudio" src="audio/principal.mp3" autoPlay></audio>
 
       {/* Icono de sonido */}
-      <div 
-        className={`sound-toggle ${isMuted ? 'muted' : ''}`} 
+      <div
+        className={`sound-toggle ${isMuted ? 'muted' : ''}`}
         onClick={toggleSound}
         title="Silenciar/Activar sonido"
       >

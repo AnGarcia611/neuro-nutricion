@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/index.css';
 
 function Index() {
   const navigate = useNavigate();
   const [isMuted, setIsMuted] = useState(false);
-  
+
   useEffect(() => {
     // Revisar si hay un valor diferente a cero en localStorage
     const savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
     const introAudio = document.getElementById('introAudio');
-    
+
     // Estado inicial del mute
     const audioMuted = localStorage.getItem('audioMuted') === 'true';
     setIsMuted(audioMuted);
@@ -71,45 +72,10 @@ function Index() {
 
   return (
     <>
-      <style>{`
-        /* Icono de sonido */
-        .sound-toggle {
-            position: absolute;
-            top: 100px;
-            right: 100px;
-            width: 5%;
-            cursor: pointer;
-            z-index: 1001;
-            transition: transform 0.2s;
-        }
-
-        .sound-toggle:hover {
-            transform: scale(1.2);
-        }
-
-        .sound-toggle img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .sound-toggle .icon-off {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-on {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-off {
-            display: block;
-        }
-      `}</style>
-      
       <div className="intro-overlay" id="introOverlay">
         {/* Icono de sonido con las nuevas imágenes */}
-        <div 
-          className={`sound-toggle ${isMuted ? 'muted' : ''}`} 
+        <div
+          className={`sound-toggle ${isMuted ? 'muted' : ''}`}
           onClick={toggleSound}
           title="Silenciar/Activar sonido"
         >

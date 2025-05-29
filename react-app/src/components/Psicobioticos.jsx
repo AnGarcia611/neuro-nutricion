@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/psicobioticos.css';
 
 function Psicobioticos() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function Psicobioticos() {
     // Función para cambiar imagen con efecto deslizante
     function changeImageWithSlide(nextIndex, direction) {
       if (!illustration) return;
-      
+
       illustration.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s';
       illustration.style.transform = `translateX(${direction === 'left' ? '-100%' : '100%'})`;
       illustration.style.opacity = '0';
@@ -153,70 +154,12 @@ function Psicobioticos() {
 
   return (
     <>
-      <style>{`
-        /* Icono de sonido */
-        .sound-toggle {
-            position: absolute;
-            top: 100px;
-            right: 100px;
-            width: 5%;
-            cursor: pointer;
-            z-index: 1001;
-            transition: transform 0.2s;
-            animation: scaleIn 1s ease-out forwards;
-            animation-delay: 0.2s;
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        .sound-toggle:hover {
-            transform: scale(1.2);
-        }
-
-        .sound-toggle img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .sound-toggle .icon-off {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-on {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-off {
-            display: block;
-        }
-
-        /* Animación de entrada para el icono de sonido */
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .sound-toggle .icon-on {
-            animation: scaleIn 1s ease-out forwards;
-            animation-delay: 1s;
-            transform: scale(0);
-            opacity: 0;
-        }
-      `}</style>
-
       {/* Audio de fondo */}
       <audio id="pageAudio" src="audio/principal.mp3" autoPlay></audio>
 
       {/* Icono de sonido */}
-      <div 
-        className={`sound-toggle ${isMuted ? 'muted' : ''}`} 
+      <div
+        className={`sound-toggle ${isMuted ? 'muted' : ''}`}
         onClick={toggleSound}
         title="Silenciar/Activar sonido"
       >
@@ -245,7 +188,7 @@ function Psicobioticos() {
           <img src="iconos/icono_7.png" alt="Ícono flecha mano" className="icon-arrow-hand" />
         </div>
       </main>
-      
+
       <div className="icons-grid">
         <div className="icon-box inicio" onClick={() => handleIconClick('/')}>
           <img src="iconos/icono_1.png" alt="Ícono de cerebro" className="icon" />

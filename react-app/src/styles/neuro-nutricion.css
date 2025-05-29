@@ -5,7 +5,7 @@ html, body {
     padding: 0;
 }
 
-body {
+.neuro-nutricion-container {
     font-family: 'Manrope', sans-serif;
     margin: 0;
     padding: 0;
@@ -18,13 +18,13 @@ body {
 
 /* Mobile First - Base styles for mobile */
 @media (max-width: 480px) {
-    body {
+    .neuro-nutricion-container {
         padding: 15px;
     }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-    body {
+    .neuro-nutricion-container {
         padding: 25px;
     }
 }
@@ -380,15 +380,15 @@ body {
 
 /* Mejoras para modo oscuro */
 @media (prefers-color-scheme: dark) {
-    body {
+    .neuro-nutricion-container {
         background-color: #1a1a1a;
     }
     
-    .description {
+    .neuro-nutricion-container .description {
         color: #e0e0e0;
     }
     
-    .titulo-principal {
+    .neuro-nutricion-container .titulo-principal {
         color: #9c27b0;
     }
 }
@@ -406,7 +406,7 @@ body {
         background-color: rgba(98, 71, 223, 1) !important;
     }
     
-    body {
+    .neuro-nutricion-container {
         background-color: white;
         padding: 20px;
     }

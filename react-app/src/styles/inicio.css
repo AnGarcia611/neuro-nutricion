@@ -87,6 +87,7 @@ body {
     display: block;
 }
 
+
 /* Info card styles */
 .info-card {
     position: fixed;
@@ -226,11 +227,12 @@ body {
     .sound-toggle {
         top: 100px;
         right: 100px;
+        width: 80px;
         height: 80px;
     }
 }
 
-/* Keyframes for icon animations */
+/* Keyframes for animations */
 @keyframes scaleIn {
     from {
         transform: scale(0);

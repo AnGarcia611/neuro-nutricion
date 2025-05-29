@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/test-emocional.css';
 
 function TestEmocional() {
   const navigate = useNavigate();
@@ -105,10 +106,10 @@ function TestEmocional() {
         const stateNames = ['stressed', 'sad', 'happy'];
         const stateName = stateNames[index];
         const state = states.find(s => s.name === stateName);
-        
+
         if (state) {
           changeState(state);
-          
+
           // Mostrar imagen de estado correspondiente
           Object.values(stateImages).forEach(img => img && img.classList.add('hidden'));
           const stateImage = stateImages[stateName === 'stressed' ? 'estresado' : stateName === 'sad' ? 'triste' : 'alegre'];
@@ -176,63 +177,12 @@ function TestEmocional() {
 
   return (
     <>
-      <style>{`
-        /* Icono de sonido */
-        .sound-toggle {
-            position: absolute;
-            top: 100px;
-            right: 100px;
-            width: 5%;
-            cursor: pointer;
-            z-index: 1001;
-            transition: transform 0.2s;
-            animation: scaleIn 1s ease-out forwards;
-            animation-delay: 0.2s;
-            transform: scale(0);
-            opacity: 0;
-        }
-
-        .sound-toggle:hover {
-            transform: scale(1.2);
-        }
-
-        .sound-toggle img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .sound-toggle .icon-off {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-on {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-off {
-            display: block;
-        }
-
-        /* Animación de entrada para el icono de sonido */
-        @keyframes scaleIn {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-      `}</style>
-
       {/* Audio de fondo */}
       <audio id="pageAudio" src="audio/principal.mp3" autoPlay></audio>
 
       {/* Icono de sonido */}
-      <div 
-        className={`sound-toggle ${isMuted ? 'muted' : ''}`} 
+      <div
+        className={`sound-toggle ${isMuted ? 'muted' : ''}`}
         onClick={toggleSound}
         title="Silenciar/Activar sonido"
       >

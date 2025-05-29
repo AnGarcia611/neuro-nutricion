@@ -1,0 +1,165 @@
+/* Sound Toggle Global Styles */
+/* Estilos globales para el icono de sonido on/off usado en toda la aplicación */
+
+/* Variables CSS para animaciones consistentes */
+:root {
+    --sound-toggle-animation-duration: 0.8s;
+    --sound-toggle-animation-delay-base: 0.3s;
+    --sound-toggle-animation-delay-icon: 0.6s;
+    --sound-toggle-animation-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --sound-toggle-hover-scale: 1.15;
+    --sound-toggle-transition-speed: 0.2s;
+}
+
+.sound-toggle {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    width: 5%;
+    cursor: pointer;
+    z-index: 1001;
+    transition: transform var(--sound-toggle-transition-speed) ease;
+    animation: soundToggleEntrance var(--sound-toggle-animation-duration) var(--sound-toggle-animation-easing) forwards;
+    animation-delay: var(--sound-toggle-animation-delay-base);
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Mobile sound toggle responsive */
+@media (max-width: 480px) {
+    .sound-toggle {
+        top: 15px;
+        right: 15px;
+        width: 12%;
+        min-width: 40px;
+        max-width: 60px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .sound-toggle {
+        top: 25px;
+        right: 25px;
+        width: 8%;
+        min-width: 50px;
+        max-width: 70px;
+    }
+}
+
+/* Hover effect - Usando variables consistentes */
+.sound-toggle:hover {
+    transform: scale(var(--sound-toggle-hover-scale));
+}
+
+/* Image styles */
+.sound-toggle img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Icon states - Default (sound on) */
+.sound-toggle .icon-off {
+    display: none;
+}
+
+/* Icon states - Muted (sound off) */
+.sound-toggle.muted .icon-on {
+    display: none;
+}
+
+.sound-toggle.muted .icon-off {
+    display: block;
+}
+
+/* Animaciones estandarizadas para entrada */
+@keyframes soundToggleEntrance {
+    0% {
+        transform: scale(0) rotate(-45deg);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1) rotate(0deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* Animación alternativa más suave para contextos específicos */
+@keyframes soundToggleFadeIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Animación estandarizada para iconos internos */
+.sound-toggle .icon-on {
+    animation: soundToggleEntrance var(--sound-toggle-animation-duration) var(--sound-toggle-animation-easing) forwards;
+    animation-delay: var(--sound-toggle-animation-delay-icon);
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Variantes estandarizadas para diferentes layouts */
+.sound-toggle.fixed {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    animation: soundToggleFadeIn var(--sound-toggle-animation-duration) var(--sound-toggle-animation-easing) forwards;
+    animation-delay: var(--sound-toggle-animation-delay-base);
+    transform: scale(0.8);
+    opacity: 0;
+}
+
+/* Posicionamiento especial para página de inicio */
+.sound-toggle.inicio-style {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    animation: soundToggleEntrance var(--sound-toggle-animation-duration) var(--sound-toggle-animation-easing) forwards;
+    animation-delay: calc(var(--sound-toggle-animation-delay-base) * 0.5);
+}
+
+/* Improved accessibility */
+.sound-toggle:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .sound-toggle {
+        outline: 1px solid;
+    }
+}
+
+/* Soporte para movimiento reducido - Usando animación alternativa */
+@media (prefers-reduced-motion: reduce) {
+    .sound-toggle {
+        animation: soundToggleFadeIn 0.3s ease forwards;
+        animation-delay: 0.1s;
+    }
+    
+    .sound-toggle .icon-on {
+        animation: soundToggleFadeIn 0.3s ease forwards;
+        animation-delay: 0.2s;
+    }
+    
+    .sound-toggle.fixed,
+    .sound-toggle.inicio-style {
+        animation: soundToggleFadeIn 0.3s ease forwards;
+        animation-delay: 0.1s;
+    }
+}

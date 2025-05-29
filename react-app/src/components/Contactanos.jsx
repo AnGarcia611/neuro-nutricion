@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextPressure from './ui/TextPressure';
+import '../styles/contactanos.css';
 
 function Contactanos() {
   const navigate = useNavigate();
@@ -64,40 +65,6 @@ function Contactanos() {
 
   return (
     <>
-      <style>{`
-        /* Icono de sonido */
-        .sound-toggle {
-            position: absolute;
-            top: 100px;
-            right: 100px;
-            width: 5%;
-            cursor: pointer;
-            z-index: 1001;
-            transition: transform 0.2s;
-        }
-
-        .sound-toggle:hover {
-            transform: scale(1.2);
-        }
-
-        .sound-toggle img {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .sound-toggle .icon-off {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-on {
-            display: none;
-        }
-
-        .sound-toggle.muted .icon-off {
-            display: block;
-        }
-      `}</style>
 
       <div className="contactanos-page">
         {/* Audio de fondo */}

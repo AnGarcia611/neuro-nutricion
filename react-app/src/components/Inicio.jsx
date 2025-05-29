@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/inicio.css';
 
 function Inicio() {
   const [isMuted, setIsMuted] = useState(false);
