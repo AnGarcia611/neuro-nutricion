@@ -1,15 +1,6 @@
-/* Moved inline styles from test-emocional.html */
-body {
-    overflow-x: hidden;
-    background-color: #AE1B8F;
-    padding: 0;
-    margin: 0;
-}
-
 .background-figure {
     position: absolute;
     z-index: -1;
-    fill: rgba(252, 74, 158, 0.38);
 }
 
 .background-figure-1 {
@@ -25,9 +16,7 @@ body {
 }
 
 .test-container {
-
     margin: 150px;
-
     max-width: 550px;
 }
 

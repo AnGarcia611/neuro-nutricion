@@ -1,24 +1,17 @@
 /* Styles specific to neuro-nutricion.html */
 
-html, body {
-    margin: 0;
-    padding: 0;
-    background: #fff !important;
-    background-color: #fff !important;
-}
-
 .neuro-nutricion-container {
     font-family: 'Manrope', sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 40px;
     background: #fff !important;
     background-color: #fff !important;
     position: relative;
-    /* Cambiado overflow de hidden a auto para permitir scroll */
     overflow: auto;
-    padding: 40px;
+    min-height: 100vh;
+    min-width: 100vw;
+    box-sizing: border-box;
 }
-
 /* Mobile First - Base styles for mobile */
 @media (max-width: 480px) {
     .neuro-nutricion-container {
@@ -299,29 +292,6 @@ html, body {
     }
 }
 
-/* Ajuste para permitir que el contenido se expanda naturalmente */
-.neuro-nutricion-container {
-    min-height: calc(100vh - 200px);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-}
-
-/* Mobile container adjustments */
-@media (max-width: 768px) {
-    .neuro-nutricion-container {
-        min-height: calc(100vh - 150px);
-        padding-bottom: 150px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 768px) {
-    .neuro-nutricion-container {
-        min-height: calc(100vh - 180px);
-        padding-bottom: 180px;
-    }
-}
 
 /* Mejoras adicionales para móviles */
 @media (max-width: 768px) {
@@ -386,39 +356,7 @@ html, body {
     }
 }
 
-/* Mejoras para modo oscuro */
-@media (prefers-color-scheme: dark) {
-    .neuro-nutricion-container {
-        background-color: #fff;
-    }
-    
-    .neuro-nutricion-container .description {
-        color: #4B4C54;
-    }
-    
-    .neuro-nutricion-container .titulo-principal {
-        color: #9c27b0;
-    }
-}
 
-/* Estilos para impresión */
-@media print {
-    .sound-toggle,
-    .icons-grid {
-        display: none;
-    }
-    
-    .card-info {
-        transform: translateY(0) !important;
-        position: relative !important;
-        background-color: rgba(98, 71, 223, 1) !important;
-    }
-    
-    .neuro-nutricion-container {
-        background-color: white;
-        padding: 20px;
-    }
-}
 
 /* Keyframes for entrance animations */
 @keyframes scaleIn {
