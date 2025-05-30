@@ -5,6 +5,7 @@ import '../styles/test-emocional.css';
 function TestEmocional() {
   const navigate = useNavigate();
   const [isMuted, setIsMuted] = useState(false);
+  const [containerBg, setContainerBg] = useState('#AE1B8F');
 
   useEffect(() => {
     // Estado inicial del mute
@@ -17,7 +18,6 @@ function TestEmocional() {
 
     // Configurar lógica del test emocional
     const emojis = document.querySelectorAll('.emoji-option');
-    const body = document.body;
     const handPointer = document.querySelector('.hand-pointer');
     const resetButton = document.querySelector('.reset-button');
     const stateImages = {
@@ -43,14 +43,14 @@ function TestEmocional() {
       },
       {
         name: 'sad',
-        backgroundColor: '#FA79B6 ',
+        backgroundColor: '#FA79B6',
         subtitle: 'La falta de motivación y energía puede estar vinculada a deficiencias de nutrientes clave en tu dieta.',
         handImage: 'imagenes/triste.png',
         recommendation: ' Añade alimentos ricos en omega-3, vitamina D y antioxidantes como pescado azul, huevo y frutas rojas. Favorecen la claridad mental y el equilibrio emocional.'
       },
       {
         name: 'happy',
-        backgroundColor: '#2C9DFF  ',
+        backgroundColor: '#2C9DFF',
         subtitle: '¡Estás en sintonía con tu cuerpo y tu mente! Una buena alimentación puede ayudarte a mantener ese estado.',
         handImage: 'imagenes/alegre.png',
         recommendation: 'Continúa con una dieta balanceada que incluya frutas, verduras frescas y suficiente agua. Tu energía es el reflejo de tus hábitos.'
@@ -62,7 +62,7 @@ function TestEmocional() {
     }
 
     function changeState(state) {
-      body.style.backgroundColor = state.backgroundColor;
+      setContainerBg(state.backgroundColor);
 
       const subtitles = document.querySelectorAll('.test-subtitle');
       const recommendationSubtitle = subtitles[2];
@@ -176,7 +176,7 @@ function TestEmocional() {
   };
 
   return (
-    <>
+    <div className="test-emocional-container" style={{ minHeight: '100vh', minWidth: '100vw', background: containerBg, transition: 'background 0.5s' }}>
       {/* Audio de fondo */}
       <audio id="pageAudio" src="audio/principal.mp3" autoPlay></audio>
 
@@ -265,7 +265,7 @@ function TestEmocional() {
           <img src="iconos/icono_5.png" alt="Ícono de información" className="icon" />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

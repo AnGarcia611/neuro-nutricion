@@ -1,3 +1,19 @@
+.test-emocional-container {
+    min-height: 100vh;
+    min-width: 100vw;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: background 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 1;
+}
+
 .background-figure {
     position: absolute;
     z-index: -1;
@@ -117,7 +133,7 @@
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
-    margin-top: 300px;
+    margin-top: 120px;
     margin-bottom: 10px;
 }
 
@@ -193,4 +209,114 @@
         opacity: 1;
     }
 }
+
+/* Ocultar la mano en tablets y móviles */
+@media (max-width: 1700px) {
+    .hand-pointer-container {
+        display: none !important;
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .test-container {
+        margin: 60px auto;
+        max-width: 90vw;
+    }
+    .emoji-container img {
+        width: 140px;
+        height: 140px;
+    }
+    .hand-pointer-container {
+        height: 350px;
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .test-title {
+        font-size: 36px;
+        margin-top: 60px;
+    }
+    .test-subtitle {
+        font-size: 20px;
+    }
+    .parrafo-recomendacion {
+        font-size: 18px;
+    }
+    .test-container {
+        margin: 30px auto;
+        max-width: 98vw;
+        padding: 0 10px;
+    }
+    .emoji-container img {
+        width: 90px;
+        height: 90px;
+    }
+    .emoji-label {
+        font-size: 14px;
+    }
+    .emojis-row {
+        margin: 30px 0 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .test-emocional-container {
+        min-width: 100vw;
+        padding: 0;
+    }
+    .test-container {
+        margin: 10px auto;
+        padding: 0 5px;
+    }
+    .test-title {
+        font-size: 22px;
+        margin-top: 30px;
+    }
+    .test-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .parrafo-recomendacion {
+        font-size: 13px;
+    }
+    .emoji-container img {
+        width: 60px;
+        height: 60px;
+    }
+    .emoji-label {
+        font-size: 10px;
+    }
+    .emojis-row {
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0 20px;
+    }
+    .emoji-option {
+        margin: 10px 0;
+    }
+    .background-figure-1, .background-figure-2 {
+        height: 40vh;
+    }
+    .reset-button {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .test-title {
+        font-size: 16px;
+    }
+    .test-subtitle {
+        font-size: 10px;
+    }
+    .parrafo-recomendacion {
+        font-size: 10px;
+    }
+}
+
+
 
