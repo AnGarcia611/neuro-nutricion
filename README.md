@@ -1,41 +1,12 @@
-# Proyecto de Sitio Web Neuro Nutricion
+# React + Vite
 
-Nombre del proyecto: Neuro Nutricion
-Descripcion: Neuronuticion es un proyecto academinco, consta de 5 paginas
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-1. Animacion de carga con logo en gif
-2. Pagina de inicio
-3. Que es neutro nutricion
-4. Test Emosional
-5. Psicobioticos
+Currently, two official plugins are available:
 
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
+## Expanding the ESLint configuration
 
-## Estructura del Proyecto
-
-```
-static-website
-├── index.html       # Punto de entrada principal del sitio web
-├── about.html       # P&aacute;gina "Acerca de" con informaci&oacute;n sobre el sitio web o el creador
-├── contact.html     # P&aacute;gina de contacto con un formulario o informaci&oacute;n de contacto
-├── css
-│   └── styles.css   # Estilos para el sitio web
-└── README.md        # Documentaci&oacute;n del proyecto
-```
-
-## Comenzando
-
-Para ver el sitio web, sigue estos pasos:
-
-1. Clona el repositorio o descarga los archivos del proyecto.
-2. Abre el archivo `index.html` en un navegador web. Este servir&aacute; como la p&aacute;gina de inicio.
-3. Navega a otras p&aacute;ginas utilizando los enlaces proporcionados en el men&uacute; de navegaci&oacute;n.
-
-## Tecnolog&iacute;as Utilizadas
-
-- HTML5
-- CSS3
-
-## Personalizaci&oacute;n
-
-Si&eacute;ntete libre de modificar los archivos HTML y CSS para personalizar el contenido y los estilos seg&uacute;n tus preferencias.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
