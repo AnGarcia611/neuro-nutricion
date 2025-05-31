@@ -1,6 +1,5 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useState } from "react";
-import "./Stack.css";
 
 function CardRotate({ children, onSendToBack, sensitivity }) {
     const x = useMotionValue(0);
