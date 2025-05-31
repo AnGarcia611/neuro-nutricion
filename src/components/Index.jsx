@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import SplashCursor from './ui/SplashCursor';
 import '../styles/index.css';
 
 function Index() {
@@ -72,6 +73,7 @@ function Index() {
 
   return (
     <>
+      <SplashCursor />
       <div className="intro-overlay" id="introOverlay">
         {/* Icono de sonido con las nuevas imágenes */}
         <div

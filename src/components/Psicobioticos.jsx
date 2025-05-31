@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/psicobioticos.css';
+import SplashCursor from './ui/SplashCursor';
 
 function Psicobioticos() {
   const navigate = useNavigate();
@@ -154,6 +155,7 @@ function Psicobioticos() {
 
   return (
     <>
+      <SplashCursor />
       {/* Audio de fondo */}
       <audio id="pageAudio" src="audio/principal.mp3" autoPlay></audio>
 
