@@ -1,0 +1,234 @@
+/* Carousel Component Styles */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f8f9fa;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  cursor: grab;
+  will-change: transform;
+}
+
+.carousel-track:active {
+  cursor: grabbing;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 8px;
+  margin: 0 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-item-icon {
+  font-size: 48px;
+  color: #3498db;
+  margin-bottom: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-item:hover .carousel-item-icon {
+  transform: scale(1.1);
+  color: #2980b9;
+}
+
+.carousel-item-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.carousel-item-description {
+  font-size: 14px;
+  color: #7f8c8d;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.carousel-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  font-size: 18px;
+  color: #2c3e50;
+}
+
+.carousel-navigation:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-navigation.prev {
+  left: 16px;
+}
+
+.carousel-navigation.next {
+  right: 16px;
+}
+
+.carousel-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: #3498db;
+  transition: width 0.3s ease;
+  border-radius: 0 0 12px 12px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 320px;
+  }
+  
+  .carousel-item {
+    width: 250px;
+    padding: 16px;
+    margin: 0 8px;
+  }
+  
+  .carousel-item-icon {
+    font-size: 36px;
+    margin-bottom: 12px;
+  }
+  
+  .carousel-item-title {
+    font-size: 16px;
+  }
+  
+  .carousel-item-description {
+    font-size: 13px;
+  }
+  
+  .carousel-navigation {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .carousel-navigation.prev {
+    left: 8px;
+  }
+  
+  .carousel-navigation.next {
+    right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-item {
+    width: 200px;
+    padding: 12px;
+  }
+  
+  .carousel-navigation {
+    display: none;
+  }
+  
+  .carousel-dots {
+    bottom: 8px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .carousel-item {
+    border: 2px solid currentColor;
+  }
+  
+  .carousel-navigation {
+    border: 2px solid currentColor;
+    background: white;
+  }
+  
+  .carousel-dot {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-item,
+  .carousel-navigation,
+  .carousel-dot,
+  .carousel-progress {
+    transition: none;
+  }
+  
+  .carousel-item:hover,
+  .carousel-navigation:hover {
+    transform: none;
+  }
+}

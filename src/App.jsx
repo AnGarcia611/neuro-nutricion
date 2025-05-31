@@ -5,9 +5,11 @@ import NeuroNutricion from './components/NeuroNutricion';
 import TestEmocional from './components/TestEmocional';
 import Psicobioticos from './components/Psicobioticos';
 import Contactanos from './components/Contactanos';
+import UITestPage from './UITestPage';
 import './App.css';
 import './styles/footer.css';
 import './styles/sound-toggle.css';
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
           <Route path="/test-emocional" element={<TestEmocional />} />
           <Route path="/psicobioticos" element={<Psicobioticos />} />
           <Route path="/contactanos" element={<Contactanos />} />
+          <Route path="/ui-test" element={<UITestPage />} />
         </Routes>
       </div>
     </Router>

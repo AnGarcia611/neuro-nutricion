@@ -173,6 +173,7 @@ export default function Aurora(props) {
         });
 
         const mesh = new Mesh(gl, { geometry, program });
+        gl.canvas.className = "aurora-canvas";
         ctn.appendChild(gl.canvas);
 
         let animateId = 0;
