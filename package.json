@@ -1,13 +1,16 @@
 {
   "name": "neuro-nutricion",
   "private": true,
+  "homepage": "https://angarcia611.github.io/neuro-nutricion",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.1.0",
