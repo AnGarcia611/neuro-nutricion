@@ -101,60 +101,37 @@ function Contactanos() {
                   <div className="team-member">
                     <div className="member-photo">
                       <div className="flower-background">
-                        <img src="imagenes/flores_lau.png" alt="Flores decorativas Laura"
-                          className="flower-image-laura" />
+                        <img src="imagenes/flores_lau.png" alt="Flores decorativas Laura" className="flower-image-laura" />
                       </div>
                       <img src="imagenes/laura.png" alt="Laura Pulido" className="person-image" />
                     </div>
                     <div className="member-name">Laura Pulido</div>
+                    <div className="social-icons">
+                      <a href="#" className="social-icon instagram" title="Instagram"><i className="fab fa-instagram"></i></a>
+                      <a href="#" className="social-icon linkedin" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                    </div>
                   </div>
                   <div className="team-member">
                     <div className="member-photo">
                       <div className="flower-background">
-                        <img src="imagenes/flores_andrea.png" alt="Flores decorativas Andrea"
-                          className="flower-image-andrea" />
+                        <img src="imagenes/flores_andrea.png" alt="Flores decorativas Andrea" className="flower-image-andrea" />
                       </div>
                       <img src="imagenes/andrea.png" alt="Andrea Sánchez" className="person-image" />
                     </div>
                     <div className="member-name">Andrea Sánchez</div>
+                    <div className="social-icons">
+                      <a href="#" className="social-icon instagram" title="Instagram"><i className="fab fa-instagram"></i></a>
+                      <a href="#" className="social-icon linkedin" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                    </div>
                   </div>
                 </div>
               </div>
               <div className="right-column">
-                <h2>Nuestra</h2>
-                <div style={{ position: 'relative', height: '90px', marginBottom: '10px' }}>
-                  <TextPressure
-                    text="Historia"
-                    flex={true}
-                    alpha={false}
-                    stroke={false}
-                    width={true}
-                    weight={true}
-                    italic={true}
-                    textColor="#222"
-                    strokeColor="#ff0000"
-                    minFontSize={48}
-                  />
-                </div>
-                <div className="about-text">
-                  <p>Diseñadoras digitales y multimedia comprometidas con la creación de experiencias emocionales
-                    e interactivas que transforman la forma en que abordamos nuestra salud. A nivel sensorial,
-                    artística y la innovación tecnológica, surge nuestro enfoque: la Neuro Nutrición, un concepto que
-                    conecta cuerpo, mente y entorno.</p>
-                  <p>Nace en Marzo 2025 esta webdoc no lineal ofrece alternativas conscientes frente a los
-                    desafíos del bienestar contemporáneo. Creemos que el cuidado está en nuestras manos y que el diseño
-                    digital puede abrir caminos de reflexión, empatía y cambio.</p>
-                </div>
-                <div className="contact-buttons">
-                  <div className="contact-us">Contáctanos</div>
-                  <div className="social-icons">
-                    <a href="#" className="social-icon linkedin" title="LinkedIn">
-                      <i className="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" className="social-icon instagram" title="Instagram">
-                      <i className="fab fa-instagram"></i>
-                    </a>
-                  </div>
+                <h2 >Nuestra</h2>
+                <h1 >Historia</h1>
+                <div className="about-text" >
+                  <p>Diseñadoras digitales y multimedia comprometidas con la creación de experiencias emocionales e interactivas que transforman la forma en que exploramos temas vitales.<br />Desde la sensibilidad artística y la innovación tecnológica, surge nuestro enfoque: la Neuronutrición, un concepto que conecta cuerpo, mente y entorno.</p>
+                  <p>Nace en Marzo 2025 esta webdoc no lineal ofrece alternativas conscientes frente a los desafíos del bienestar contemporáneo. Creemos que el cuidado está en nuestras manos y que el diseño digital puede abrir caminos de reflexión, empatía y cambio.</p>
                 </div>
               </div>
             </div>
@@ -163,6 +140,11 @@ function Contactanos() {
             </div>
           </div>
         </main>
+        <div className="footer-content" style={{ marginTop: 0, textAlign: 'left', color: '#FE0578', fontWeight: 400, fontSize: '1.1em', maxWidth: 900, margin: '0 auto' }}>
+          <p>Creemos que <strong>informar</strong> es una forma de <strong>cuidar</strong>.<br />
+            <span style={{ color: '#FE0578', fontWeight: 700 }}>Por eso, este <span style={{ color: '#9C27B0' }}>webdoc</span> te invita a <span style={{ color: '#FE0578' }}>reconectar contigo</span>, eligiendo <span style={{ color: '#FE0578' }}>tu bienestar</span>.</span>
+          </p>
+        </div>
 
         {/* Íconos de navegación */}
         <div className="icons-grid-container">
@@ -188,15 +170,6 @@ function Contactanos() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="footer-container">
-          <div className="footer-content">
-            <p>Creemos que <strong>informar</strong> es una forma de <strong>cuidar</strong>.</p>
-            <p>Por eso, este <strong>webdoc</strong> te invita a <strong>reconectar contigo</strong>, eligiendo
-              <strong>tu bienestar</strong>.
-            </p>
-          </div>
-        </footer>
       </div>
     </>
   );

@@ -1,7 +1,8 @@
 .content-section {
 
     background: linear-gradient(to right, #3b3b98, #e55039);
-    min-height: 100vh;
+    /* border-radius: 20px; */
+    min-height: 90vh;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -21,6 +22,8 @@
     background:rgba(238, 222, 245, 0.35);
     border-radius: 20px;
 }
+
+
 
 .info-section {
     text-align: center;
@@ -94,8 +97,8 @@
 /* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
     .content-section {
-        min-height: 100vh;
-        height: 100vh;
+        min-height: 70vh;
+        height: auto;
         padding: 30px 0;
     }
     .content-container {
@@ -125,8 +128,7 @@
 
 @media (max-width: 800px) {
     .content-section {
-        min-height: 100vh;
-        height: 100vh;
+        min-height: 60vh;
         padding: 10px 0;
     }
     .content-container {
@@ -158,8 +160,7 @@
 
 @media (max-width: 500px) {
     .content-section {
-        min-height: 100vh;
-        height: 100vh;
+        min-height: 50vh;
         padding: 0;
     }
     .content-container {
