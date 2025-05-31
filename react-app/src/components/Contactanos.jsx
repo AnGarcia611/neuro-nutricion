@@ -84,13 +84,9 @@ function Contactanos() {
           </span>
         </div>
 
-        {/* Header con logo */}
-        <header className="header-container">
-          <div className="logo-container">
-            <img src="iconos/icono_1.png" alt="Logo Neuro Nutrición" className="logo" />
-          </div>
-          <div className="header-divider"></div>
-        </header>
+
+        <div className="header-divider"></div>
+
 
         {/* Contenido principal */}
         <main className="main-content">
@@ -105,11 +101,12 @@ function Contactanos() {
                       </div>
                       <img src="imagenes/laura.png" alt="Laura Pulido" className="person-image" />
                     </div>
-                    <div className="member-name">Laura Pulido</div>
                     <div className="social-icons">
-                      <a href="#" className="social-icon instagram" title="Instagram"><i className="fab fa-instagram"></i></a>
-                      <a href="#" className="social-icon linkedin" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                      <img src="iconos/logo-instagram.svg" alt="Instagram" />
+                      <img src="iconos/logo-linkeding.png" alt="LinkedIn" />
                     </div>
+                    <div className="member-name">Laura Pulido</div>
+
                   </div>
                   <div className="team-member">
                     <div className="member-photo">
@@ -118,12 +115,19 @@ function Contactanos() {
                       </div>
                       <img src="imagenes/andrea.png" alt="Andrea Sánchez" className="person-image" />
                     </div>
-                    <div className="member-name">Andrea Sánchez</div>
                     <div className="social-icons">
-                      <a href="#" className="social-icon instagram" title="Instagram"><i className="fab fa-instagram"></i></a>
-                      <a href="#" className="social-icon linkedin" title="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                      <img src="iconos/logo-instagram.svg" alt="Instagram" />
+                      <img src="iconos/logo-linkeding.png" alt="LinkedIn" />
                     </div>
+                    <div className="member-name">Andrea Sánchez</div>
+
                   </div>
+
+                </div>
+                <div className="footer-content" style={{ marginTop: 0, textAlign: 'left', color: '#FE0578', fontWeight: 400, fontSize: '1.1em', maxWidth: 900, margin: '0 auto' }}>
+                  <p>Creemos que <strong>informar</strong> es una forma de <strong>cuidar</strong>.<br />
+                    <span style={{ color: '#FE0578', fontWeight: 700 }}>Por eso, este <span style={{ color: '#9C27B0' }}>webdoc</span> te invita a <span style={{ color: '#FE0578' }}>reconectar contigo</span>, eligiendo <span style={{ color: '#FE0578' }}>tu bienestar</span>.</span>
+                  </p>
                 </div>
               </div>
               <div className="right-column">
@@ -140,11 +144,7 @@ function Contactanos() {
             </div>
           </div>
         </main>
-        <div className="footer-content" style={{ marginTop: 0, textAlign: 'left', color: '#FE0578', fontWeight: 400, fontSize: '1.1em', maxWidth: 900, margin: '0 auto' }}>
-          <p>Creemos que <strong>informar</strong> es una forma de <strong>cuidar</strong>.<br />
-            <span style={{ color: '#FE0578', fontWeight: 700 }}>Por eso, este <span style={{ color: '#9C27B0' }}>webdoc</span> te invita a <span style={{ color: '#FE0578' }}>reconectar contigo</span>, eligiendo <span style={{ color: '#FE0578' }}>tu bienestar</span>.</span>
-          </p>
-        </div>
+
 
         {/* Íconos de navegación */}
         <div className="icons-grid-container">

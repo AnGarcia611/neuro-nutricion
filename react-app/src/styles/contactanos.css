@@ -7,30 +7,12 @@
     flex-direction: column;
 } */
 
-.header-container {
-    width: 100%;
-    padding: 20px 0 0;
-}
-
-.logo-container {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: left;
-}
-
-.logo {
-    
-    height: auto;
-    width: auto;
-}
 
 .header-divider {
     width: 100%;
     height: 1px;
     background-color: #FE0578;
-    margin: 15px 0 0;
+    margin: 75px 0 0;
     box-shadow: 0px 1px 3px rgba(254, 5, 120, 0.3);
 }
 
@@ -44,14 +26,19 @@
 }
 
 .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    padding: 20px 0;
+    padding: 120px 0 0 0;
+    overflow: visible;
 }
 
 .content-columns {
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    justify-content: center;
+    gap: 300px;
     width: 100%;
 }
 
@@ -59,12 +46,18 @@
     display: flex;
     flex-direction: column;
     width: 50%;
+    max-width: 500px;
+}
+
+.left-column p {
+    margin: 0;
 }
 
 .right-column {
     display: flex;
     flex-direction: column;
     width: 50%;
+    max-width: 500px;
 }
 
 
@@ -77,6 +70,7 @@
     line-height: 1;
     text-align: left;
     margin: 0;
+    overflow: visible;
 }
 
 .contact-container h1 {
@@ -87,7 +81,7 @@
     font-weight: 900;
     line-height: 1;
     text-align: left;
-    margin: 0 0 40px 0;
+    margin: 0 0 0px 0;
 }
 
 .contact-container p {
@@ -107,8 +101,9 @@
     justify-content: center;
     gap: 30px;
     margin-top: auto; /* Empuja la sección hacia abajo */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     align-self: flex-end; /* Alinea al final del contenedor flexible */
+    overflow: visible;
 }
 
 .team-member {
@@ -142,29 +137,32 @@
 }
 
 .flower-image-laura {
+    overflow: visible;
     scale: 1.3;
     transform: translateY(-50px) translateX(-50px);
+    z-index: 2;
 }
 
 .flower-image-andrea {
     scale: 1.5;
     transform: translateY(-50px) translateX(30px);
+    z-index: -1;
 }
 
 .flower-image {
     max-width: 120%;
     max-height: 120%;
     opacity: 1;
-    z-index: 1;
+    z-index: 2;
 }
-
 
 .person-image {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    min-height: 220px;
 }
 
 .member-photo img {
@@ -185,6 +183,7 @@
     font-style: normal;
     line-height: normal;
     padding : 5px ;
+    z-index: 3  ;
 
 }
 
@@ -210,55 +209,6 @@
     margin-right: 40px;
 }
 
-.social-icons {
-    display: flex;
-    gap: 20px;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #B71B5A;
-    background: #FAFAFA;
-    transition: background 0.2s, box-shadow 0.2s;
-    box-sizing: border-box;
-}
-
-.social-icon i {
-    font-size: 20px;
-    color: #B71B5A;
-    transition: color 0.2s;
-}
-
-.social-icon:hover {
-    background: #F8EAF2;
-    box-shadow: 0 2px 8px rgba(183,27,90,0.08);
-}
-
-.facebook {
-    background-color: white;
-    color: #5E35B1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.instagram {
-    background-color: white;
-    color: #5E35B1;
-    font-size: 0.6rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .heart-brain-logo {
     text-align: center;
@@ -267,9 +217,9 @@
     justify-content: center;
     
 }
-
 .heart-brain-logo img {
-    width: 250px;
+    width: 100%;
+    max-width: 200px;
     height: auto;
 }
 
@@ -297,6 +247,51 @@
 
 .footer-container strong {
     font-weight: 700;
+}
+
+/* Social icons container */
+.social-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  z-index: 3;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid #B71B5A;
+  background: #FAFAFA;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.social-icon img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.social-icon:hover {
+  background: #F8EAF2;
+  box-shadow: 0 2px 8px rgba(183,27,90,0.08);
+}
+
+.instagram {
+  border-color: #560BA4;
+}
+
+.linkedin {
+  border-color: #4F2F87;
 }
 
 /* RESPONSIVE DESIGN */
@@ -391,6 +386,7 @@
     } */
     .member-name {
         font-size: 1em;
+        z-index: 3;
     }
     .heart-brain-logo img {
         width: 30px;
@@ -402,6 +398,14 @@
 .contactanos-page {
     background: #fff !important;
     background-color: #fff !important;
-    min-height: 100vh;
+    /* min-height: 100vh; */
     width: 100vw;
+}
+
+/* Asegura que los contenedores padres no recorten las flores */
+.main-content,
+.contact-container,
+.team-section,
+.member-photo {
+    overflow: visible !important;
 }
