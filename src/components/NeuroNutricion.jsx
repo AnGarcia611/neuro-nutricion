@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/neuro-nutricion.css';
+import Aurora from './ui/Aurora';
 
 function NeuroNutricion() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function NeuroNutricion() {
     }
 
     // Configurar cards interactivas
-    const cards = document.querySelectorAll('.card');
+    const cards = document.querySelectorAll('.nn-card');
     let hoverTimeout;
 
     // Función para actualizar las clases de las tarjetas
@@ -168,13 +169,24 @@ function NeuroNutricion() {
       </div>
 
       <main className="neuro-nutricion-container">
-        <div className="header-section">
+        <div style={{ width: "100%", height: 1000, borderRadius: 0, overflow: "hidden", margin: "auto", position: 'absolute' }}>
+          <Aurora colorStops={["#96EFFF", "#FE0578", "#96EFFF"]} amplitude={1.2} blend={0.4} />
+        </div>
+        {/* <Aurora
+          colorStops={["#4F2F88", "#FE0578", "#96EFFF"]}
+          amplitud={5}
+          blend={1}
+          speed={2}
+        /> */}
+
+
+        <div className="header-section">{/* Content goes here */}
           <h1 className="titulo-principal animate-title">¿Qué es la Neuro nutrición?</h1>
           <p className="description animate-description">Alimenta tu mente desde el plato. La Neuronutrición estudia cómo
             lo que comes impacta tu salud mental y emocional.</p>
         </div>
         <div className="cards-container animate-cards">
-          <div className="card intestino-card">
+          <div className="nn-card intestino-card">
             <img src="imagenes/imagen_1.png" alt="Microbiota intestinal" />
             <div className="card-info">
               <h3>El secreto del intestino</h3>
@@ -189,7 +201,7 @@ function NeuroNutricion() {
               </div>
             </div>
           </div>
-          <div className="card doctor-card">
+          <div className="nn-card doctor-card">
             <img src="imagenes/imagen_2.png" alt="Doctor especialista" />
             <div className="card-info">
               <h3>Conexión intestino y cerebro</h3>
@@ -205,7 +217,7 @@ function NeuroNutricion() {
               </div>
             </div>
           </div>
-          <div className="card main-card active">
+          <div className="nn-card main-card active">
             <img src="imagenes/imagen_3.png" alt="Cerebro como planta y alimentos saludables" />
             <div className="card-info">
               <h3>Nutrición y salud mental</h3>
@@ -221,7 +233,7 @@ function NeuroNutricion() {
               </div>
             </div>
           </div>
-          <div className="card cerebro-libro-card">
+          <div className="nn-card cerebro-libro-card">
             <img src="imagenes/imagen_4.png" alt="Cerebro y libro" />
             <div className="card-info">
               <h3>Alimenta tu cerebro</h3>
@@ -236,7 +248,7 @@ function NeuroNutricion() {
               </div>
             </div>
           </div>
-          <div className="card comida-mala-card">
+          <div className="nn-card comida-mala-card">
             <img src="imagenes/imagen_5.png" alt="Comida no saludable" />
             <div className="card-info">
               <h3>El Cerebro y la alimentación</h3>

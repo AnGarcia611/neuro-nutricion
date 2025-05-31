@@ -3,15 +3,16 @@
 .neuro-nutricion-container {
     font-family: 'Manrope', sans-serif;
     margin: 0;
-    padding: 40px;
-    background: #fff !important;
-    background-color: #fff !important;
+    /* padding: 40px; */
+    background: #012465 !important;
+    background-color: #012465 !important;
     position: relative;
     overflow: auto;
     min-height: 100vh;
     min-width: 100vw;
     box-sizing: border-box;
 }
+
 /* Mobile First - Base styles for mobile */
 @media (max-width: 480px) {
     .neuro-nutricion-container {
@@ -52,16 +53,16 @@
 
 .titulo-principal {
     font-family: 'Nunito', sans-serif;
-    color: #6a1b9a;
+    color: white;
     font-size: clamp(24px, 5vw, 40px);
     margin-bottom: 15px;
     font-weight: bold;
-    margin-top: 0;
+    margin-top: 30px;
 }
 
 .description {
     font-family: 'Manrope', sans-serif;
-    color: #4B4C54;
+    color: white;
     line-height: 1.6;
     font-size: clamp(14px, 2.5vw, 16px);
     max-width: 600px;
@@ -95,7 +96,7 @@
 }
 
 /* Prevenir comportamientos no deseados durante transiciones */
-.cards-container:hover .card:not(:hover) {
+.cards-container:hover .nn-card:not(:hover) {
     transition-delay: 0.1s;
 }
 
@@ -106,7 +107,7 @@
     }
 }
 
-.card {
+.nn-card {
     position: relative;
     height: 85%;
     border-radius: 15px;
@@ -124,7 +125,7 @@
 
 /* Mobile card styles */
 @media (max-width: 768px) {
-    .card {
+    .nn-card {
         width: 100%;
         max-width: 400px;
         height: 320px;
@@ -135,12 +136,12 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .card {
+    .nn-card {
         max-width: 120px;
     }
 }
 
-.card.adjacent {
+.nn-card.adjacent {
     height: 95%;
     max-width: 300px;
     transform: translateY(-5px);
@@ -149,7 +150,7 @@
 
 /* Mobile adjacent card styles */
 @media (max-width: 768px) {
-    .card.adjacent {
+    .nn-card.adjacent {
         height: 352px;
         max-width: none;
         transform: scale(1.02);
@@ -157,12 +158,12 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .card.adjacent {
+    .nn-card.adjacent {
         max-width: 250px;
     }
 }
 
-.card.active {
+.nn-card.active {
     flex: 3;
     max-width: 400px;
     height: 100%;
@@ -174,7 +175,7 @@
 
 /* Mobile active card styles */
 @media (max-width: 768px) {
-    .card.active {
+    .nn-card.active {
         flex: none;
         width: 100%;
         max-width: none;
@@ -184,12 +185,12 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .card.active {
+    .nn-card.active {
         max-width: 350px;
     }
 }
 
-.card img {
+.nn-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -224,7 +225,7 @@
     }
 }
 
-.card.active .card-info {
+.nn-card.active .card-info {
     transform: translateY(0);
 }
 
@@ -296,13 +297,13 @@
 /* Mejoras adicionales para móviles */
 @media (max-width: 768px) {
     /* Mejor spacing para touch interfaces */
-    .card {
+    .nn-card {
         margin-bottom: 10px;
         padding: 0;
     }
     
     /* Mejor visibilidad del contenido en móviles */
-    .card.active .card-info {
+    .nn-card.active .card-info {
         transform: translateY(0);
         position: relative;
         background-color: rgba(98, 71, 223, 0.95);
@@ -310,7 +311,7 @@
     }
     
     /* Asegurar que todas las cards muestren su info en móviles */
-    .card .card-info {
+    .nn-card .card-info {
         transform: translateY(0);
         position: relative;
         background-color: rgba(98, 71, 223, 0.85);
@@ -324,23 +325,23 @@
         gap: 20px;
     }
     
-    .card {
+    .nn-card {
         max-width: 140px;
         padding: 0px;
     }
     
-    .card.adjacent {
+    .nn-card.adjacent {
         max-width: 280px;
     }
     
-    .card.active {
+    .nn-card.active {
         max-width: 380px;
     }
 }
 
 /* Mejoras de performance y accesibilidad */
 @media (prefers-reduced-motion: reduce) {
-    .card,
+    .nn-card,
     .card-info,
     .sound-toggle,
     .icon-box {
@@ -350,7 +351,7 @@
 
 /* Optimización para pantallas de alta densidad */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    .card img {
+    .nn-card img {
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
     }
