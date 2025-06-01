@@ -8,6 +8,9 @@ function TestEmocional() {
   const [isMuted, setIsMuted] = useState(false);
   const [containerBg, setContainerBg] = useState('#AE1B8F');
   const [selectedState, setSelectedState] = useState('initial');
+  const [animatePointer, setAnimatePointer] = useState(false);
+  const [animatePointerBack, setAnimatePointerBack] = useState(false);
+  const [animateIcons, setAnimateIcons] = useState(false);
 
   const states = [
     {
@@ -88,6 +91,29 @@ function TestEmocional() {
     setContainerBg(state.backgroundColor);
   }, [selectedState]);
 
+  useEffect(() => {
+    if (selectedState !== 'initial') {
+      setAnimatePointer(true);
+      setAnimatePointerBack(false);
+      setAnimateIcons(true);
+      // Quitar la animación después de que termine para permitir reactivarla
+      const timeout = setTimeout(() => {
+        setAnimatePointer(false);
+        setAnimateIcons(false);
+      }, 600); // Duración de la animación (ms)
+      return () => clearTimeout(timeout);
+    }
+    if (selectedState === 'initial') {
+      setAnimatePointerBack(true);
+      setAnimatePointer(false);
+      setAnimateIcons(false);
+      const timeout = setTimeout(() => {
+        setAnimatePointerBack(false);
+      }, 600);
+      return () => clearTimeout(timeout);
+    }
+  }, [selectedState]);
+
   const toggleSound = () => {
     const newIsMuted = !isMuted;
     setIsMuted(newIsMuted);
@@ -143,7 +169,7 @@ function TestEmocional() {
         <img
           src={state.handImage}
           alt={selectedState === 'initial' ? 'Mano apuntando' : `Estado ${selectedState}`}
-          className="hand-pointer"
+          className={`hand-pointer${animatePointer ? ' rotate-in' : ''}${animatePointerBack ? ' rotate-back' : ''}`}
         />
       </div>
       <div className="test-emocional-background">
@@ -195,22 +221,22 @@ function TestEmocional() {
 
       {/* Íconos en la parte inferior */}
       <div className="icons-grid">
-        <div className="icon-box inicio" onClick={() => handleIconClick('/')}>
+        <div className={`icon-box inicio${animateIcons ? ' rotate-in' : ''}`} onClick={() => handleIconClick('/')}> 
           <img src="iconos/icono_1.png" alt="Ícono de cerebro" className="icon" />
         </div>
-        <div className="icon-box index" onClick={() => handleIconClick('/inicio')}>
+        <div className={`icon-box index${animateIcons ? ' rotate-in' : ''}`} onClick={() => handleIconClick('/inicio')}>
           <img src="iconos/icono_2.png" alt="Ícono de alimentación" className="icon" />
         </div>
-        <div className="icon-box neuro-nutricion" onClick={() => handleIconClick('/neuro-nutricion')}>
+        <div className={`icon-box neuro-nutricion${animateIcons ? ' rotate-in' : ''}`} onClick={() => handleIconClick('/neuro-nutricion')}>
           <img src="iconos/icono_3.png" alt="Ícono de intestino" className="icon" />
         </div>
-        <div className="icon-box test-emocional" onClick={() => handleIconClick('/test-emocional')}>
+        <div className={`icon-box test-emocional${animateIcons ? ' rotate-in' : ''}`} onClick={() => handleIconClick('/test-emocional')}>
           <img src="iconos/icono_6.png" alt="Ícono de mano" className="icon" />
         </div>
-        <div className="icon-box psicobioticos" onClick={() => handleIconClick('/psicobioticos')}>
+        <div className={`icon-box psicobioticos${animateIcons ? ' rotate-in' : ''}`} onClick={() => handleIconClick('/psicobioticos')}>
           <img src="iconos/icono_4.png" alt="Ícono de agua" className="icon" />
         </div>
-        <div className="icon-box contactanos" onClick={() => handleIconClick('/contactanos')}>
+        <div className={`icon-box contactanos${animateIcons ? ' rotate-in' : ''}`} onClick={() => handleIconClick('/contactanos')}>
           <img src="iconos/icono_5.png" alt="Ícono de información" className="icon" />
         </div>
       </div>
