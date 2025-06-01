@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/test-emocional.css';
+import FadeContent from './ui/FadeContent';
+import BlurText from './ui/BlurText';
 
 function TestEmocional() {
   const navigate = useNavigate();
@@ -212,11 +214,20 @@ function TestEmocional() {
       </div>
 
       <div className="test-container">
-        <h1 className="test-title">TEST EMOCIONAL</h1>
-        <h2 className="test-subtitle">¿Cómo te has sentido últimamente?</h2>
-        <h2 className="test-subtitle">Selecciona una opción</h2>
-        <h2 className="test-subtitle">Recomendación</h2>
-        <p className="parrafo-recomendacion"></p>
+        <BlurText
+          text="TEST EMOCIONAL"
+          delay={500}
+          className="test-title"
+        />
+
+        <FadeContent blur duration={1200}>
+          <h2 className="test-subtitle">¿Cómo te has sentido últimamente?</h2>
+          <h2 className="test-subtitle">Selecciona una opción</h2>
+          <h2 className="test-subtitle">Recomendación</h2>
+          <p className="parrafo-recomendacion"></p>
+        </FadeContent>
+
+
 
         <button className="reset-button">VOLVER</button>
 
