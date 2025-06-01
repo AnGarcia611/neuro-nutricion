@@ -32,7 +32,7 @@
 }
 
 .test-container {
-    margin: 150px;
+    margin-left: 150px;
     max-width: 550px;
 }
 
@@ -188,6 +188,7 @@
     height: auto;
     display: none; /* Hidden by default */
     z-index: -1; /* Place it above the body background but below other elements */
+    scale: 0.7;
 }
 
 .state-image.hidden {
