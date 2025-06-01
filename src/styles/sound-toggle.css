@@ -23,6 +23,8 @@
     animation-delay: var(--sound-toggle-animation-delay-base);
     transform: scale(0);
     opacity: 0;
+    aspect-ratio: 1 / 1; /* Mantiene relación de aspecto cuadrada */
+    height: auto; /* Permite que el alto se ajuste automáticamente */
 }
 
 /* Mobile sound toggle responsive */
@@ -56,6 +58,8 @@
     width: 100%;
     height: 100%;
     display: block;
+    object-fit: contain; /* Evita deformación del icono */
+    aspect-ratio: 1 / 1; /* Asegura que la imagen también sea cuadrada */
 }
 
 /* Icon states - Default (sound on) */
