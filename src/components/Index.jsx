@@ -83,11 +83,11 @@ function Index() {
         >
           {/* Icono ON (invertido) */}
           <span className="icon-on">
-            <img src="iconos/sonido_index_off.png" alt="Sonido activado" />
+            <img src="iconos/sound_off.svg" alt="Sonido activado" />
           </span>
           {/* Icono OFF (invertido) */}
           <span className="icon-off">
-            <img src="iconos/sonido_index_on.png" alt="Sonido desactivado" />
+            <img src="iconos/sound_on.svg" alt="Sonido desactivado" />
           </span>
         </div>
         <img src="video/bienvenida.gif" alt="Bienvenida" className="intro-gif" />

@@ -166,10 +166,10 @@ function Psicobioticos() {
         title="Silenciar/Activar sonido"
       >
         <span className="icon-on">
-          <img src="iconos/sonido_index_off_blanco.png" alt="Sonido activado" />
+          <img src="iconos/sound_off.svg" alt="Sonido activado" />
         </span>
         <span className="icon-off">
-          <img src="iconos/sonido_index_on.png" alt="Sonido desactivado" />
+          <img src="iconos/sound_on.svg" alt="Sonido desactivado" />
         </span>
       </div>
 

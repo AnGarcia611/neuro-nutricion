@@ -18,13 +18,15 @@
     width: 5%;
     cursor: pointer;
     z-index: 1001;
-    transition: transform var(--sound-toggle-transition-speed) ease;
+    transition: transform var(--sound-toggle-transition-speed) ease,
+                box-shadow 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
     animation: soundToggleEntrance var(--sound-toggle-animation-duration) var(--sound-toggle-animation-easing) forwards;
     animation-delay: var(--sound-toggle-animation-delay-base);
     transform: scale(0);
     opacity: 0;
     aspect-ratio: 1 / 1; /* Mantiene relación de aspecto cuadrada */
     height: auto; /* Permite que el alto se ajuste automáticamente */
+    box-shadow: none;
 }
 
 /* Mobile sound toggle responsive */
@@ -60,6 +62,19 @@
     display: block;
     object-fit: contain; /* Evita deformación del icono */
     aspect-ratio: 1 / 1; /* Asegura que la imagen también sea cuadrada */
+    border-radius: 18px; /* Bordes redondeados para sombra más suave */
+    box-shadow: -3px 26px 7px 0px rgba(0, 0, 0, 0.00),
+                -2px 17px 7px 0px rgba(0, 0, 0, 0.01),
+                -1px 9px 6px 0px rgba(0, 0, 0, 0.05),
+                0px 4px 4px 0px rgba(0, 0, 0, 0.09),
+                0px 1px 2px 0px rgba(0, 0, 0, 0.10);
+    transition: box-shadow 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+/* Efecto de "presionado" para el toggle */
+.sound-toggle:active img {
+    box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.18),
+                0px 1.5px 6px 0px rgba(0,0,0,0.12);
 }
 
 /* Icon states - Default (sound on) */
@@ -105,11 +120,42 @@
 }
 
 /* Animación estandarizada para iconos internos */
-.sound-toggle .icon-on {
+.sound-toggle .icon-on,
+.sound-toggle .icon-off {
     animation: soundToggleEntrance var(--sound-toggle-animation-duration) var(--sound-toggle-animation-easing) forwards;
     animation-delay: var(--sound-toggle-animation-delay-icon);
     transform: scale(0);
     opacity: 0;
+    transition: opacity var(--sound-toggle-transition-speed) ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estado por defecto: icon-on visible, icon-off oculto */
+.sound-toggle .icon-on {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+.sound-toggle .icon-off {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Estado muteado: icon-off visible, icon-on oculto */
+.sound-toggle.muted .icon-on {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+.sound-toggle.muted .icon-off {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
 }
 
 /* Variantes estandarizadas para diferentes layouts */
@@ -151,19 +197,9 @@
 
 /* Soporte para movimiento reducido - Usando animación alternativa */
 @media (prefers-reduced-motion: reduce) {
-    .sound-toggle {
-        animation: soundToggleFadeIn 0.3s ease forwards;
-        animation-delay: 0.1s;
-    }
-    
-    .sound-toggle .icon-on {
+    .sound-toggle .icon-on,
+    .sound-toggle .icon-off {
         animation: soundToggleFadeIn 0.3s ease forwards;
         animation-delay: 0.2s;
-    }
-    
-    .sound-toggle.fixed,
-    .sound-toggle.inicio-style {
-        animation: soundToggleFadeIn 0.3s ease forwards;
-        animation-delay: 0.1s;
     }
 }
