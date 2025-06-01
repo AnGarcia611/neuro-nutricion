@@ -32,7 +32,7 @@
 }
 
 .test-container {
-    margin-left: 150px;
+    margin: 150px;
     max-width: 550px;
 }
 
@@ -117,27 +117,12 @@
     }
 }
 
-@keyframes rotateBack {
-    0% {
-        transform: rotate(45deg);
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-}
-
 .hand-pointer.rotate-out {
     animation: rotateOut 0.5s ease forwards;
 }
 
 .hand-pointer.rotate-in {
     animation: rotateIn 0.5s ease forwards;
-}
-
-.hand-pointer.rotate-back {
-    animation: rotateBack 0.5s ease forwards;
 }
 
 .test-title {
