@@ -1,11 +1,44 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/test-emocional.css';
+import FadeContent from './ui/FadeContent';
 
 function TestEmocional() {
   const navigate = useNavigate();
   const [isMuted, setIsMuted] = useState(false);
   const [containerBg, setContainerBg] = useState('#AE1B8F');
+  const [selectedState, setSelectedState] = useState('initial');
+
+  const states = [
+    {
+      name: 'initial',
+      backgroundColor: '#AE1B8F',
+      subtitle: '¿Cómo te has sentido últimamente?',
+      handImage: 'imagenes/mano.png',
+      recommendation: ''
+    },
+    {
+      name: 'stressed',
+      backgroundColor: '#EC6F2D',
+      subtitle: 'El estrés prolongado puede alterar el equilibrio de tu sistema nervioso y afectar tu bienestar general.',
+      handImage: 'imagenes/estresado.png',
+      recommendation: 'Incorpora alimentos como avena, banano, nueces o chocolate negro e infusiones naturales. Estos ayudan a regular la serotonina y promover una sensación de calma.'
+    },
+    {
+      name: 'sad',
+      backgroundColor: '#FA79B6',
+      subtitle: 'La falta de motivación y energía puede estar vinculada a deficiencias de nutrientes clave en tu dieta.',
+      handImage: 'imagenes/triste.png',
+      recommendation: ' Añade alimentos ricos en omega-3, vitamina D y antioxidantes como pescado azul, huevo y frutas rojas. Favorecen la claridad mental y el equilibrio emocional.'
+    },
+    {
+      name: 'happy',
+      backgroundColor: '#2C9DFF',
+      subtitle: '¡Estás en sintonía con tu cuerpo y tu mente! Una buena alimentación puede ayudarte a mantener ese estado.',
+      handImage: 'imagenes/alegre.png',
+      recommendation: 'Continúa con una dieta balanceada que incluya frutas, verduras frescas y suficiente agua. Tu energía es el reflejo de tus hábitos.'
+    }
+  ];
 
   useEffect(() => {
     // Estado inicial del mute
@@ -14,118 +47,6 @@ function TestEmocional() {
     const pageAudio = document.getElementById('pageAudio');
     if (pageAudio) {
       pageAudio.muted = audioMuted;
-    }
-
-    // Configurar lógica del test emocional
-    const emojis = document.querySelectorAll('.emoji-option');
-    const handPointer = document.querySelector('.hand-pointer');
-    const resetButton = document.querySelector('.reset-button');
-    const stateImages = {
-      estresado: document.querySelector('.state-image.estresado'),
-      triste: document.querySelector('.state-image.triste'),
-      alegre: document.querySelector('.state-image.alegre')
-    };
-
-    const states = [
-      {
-        name: 'initial',
-        backgroundColor: '#AE1B8F',
-        subtitle: '¿Cómo te has sentido últimamente?',
-        handImage: 'imagenes/mano.png',
-        recommendation: ''
-      },
-      {
-        name: 'stressed',
-        backgroundColor: '#EC6F2D',
-        subtitle: 'El estrés prolongado puede alterar el equilibrio de tu sistema nervioso y afectar tu bienestar general.',
-        handImage: 'imagenes/estresado.png',
-        recommendation: 'Incorpora alimentos como avena, banano, nueces o chocolate negro e infusiones naturales. Estos ayudan a regular la serotonina y promover una sensación de calma.'
-      },
-      {
-        name: 'sad',
-        backgroundColor: '#FA79B6',
-        subtitle: 'La falta de motivación y energía puede estar vinculada a deficiencias de nutrientes clave en tu dieta.',
-        handImage: 'imagenes/triste.png',
-        recommendation: ' Añade alimentos ricos en omega-3, vitamina D y antioxidantes como pescado azul, huevo y frutas rojas. Favorecen la claridad mental y el equilibrio emocional.'
-      },
-      {
-        name: 'happy',
-        backgroundColor: '#2C9DFF',
-        subtitle: '¡Estás en sintonía con tu cuerpo y tu mente! Una buena alimentación puede ayudarte a mantener ese estado.',
-        handImage: 'imagenes/alegre.png',
-        recommendation: 'Continúa con una dieta balanceada que incluya frutas, verduras frescas y suficiente agua. Tu energía es el reflejo de tus hábitos.'
-      }
-    ];
-
-    if (resetButton) {
-      resetButton.style.display = 'none';
-    }
-
-    function changeState(state) {
-      setContainerBg(state.backgroundColor);
-
-      const subtitles = document.querySelectorAll('.test-subtitle');
-      const recommendationSubtitle = subtitles[2];
-
-      if (state.name === 'initial') {
-        subtitles[0].style.display = 'block';
-        subtitles[1].style.display = 'block';
-        recommendationSubtitle.style.display = 'none';
-        document.querySelector('.parrafo-recomendacion').textContent = state.recommendation;
-        document.querySelector('.emojis-row').style.display = 'flex';
-        Object.values(stateImages).forEach(img => img && img.classList.add('hidden'));
-      } else {
-        subtitles[0].style.display = 'none';
-        subtitles[1].style.display = 'none';
-        recommendationSubtitle.style.display = 'block';
-        recommendationSubtitle.textContent = state.subtitle;
-        document.querySelector('.parrafo-recomendacion').textContent = state.recommendation;
-        document.querySelector('.emojis-row').style.display = 'none';
-      }
-
-      if (handPointer) {
-        handPointer.classList.add('rotate-out');
-        setTimeout(() => {
-          handPointer.src = state.handImage;
-          handPointer.classList.remove('rotate-out');
-          handPointer.classList.add('rotate-in');
-          setTimeout(() => {
-            handPointer.classList.remove('rotate-in');
-          }, 500);
-        }, 250);
-      }
-
-      if (resetButton) {
-        resetButton.style.display = state.name === 'initial' ? 'none' : 'block';
-      }
-    }
-
-    // Configurar eventos de emojis
-    emojis.forEach((emoji, index) => {
-      emoji.addEventListener('click', () => {
-        const stateNames = ['stressed', 'sad', 'happy'];
-        const stateName = stateNames[index];
-        const state = states.find(s => s.name === stateName);
-
-        if (state) {
-          changeState(state);
-
-          // Mostrar imagen de estado correspondiente
-          Object.values(stateImages).forEach(img => img && img.classList.add('hidden'));
-          const stateImage = stateImages[stateName === 'stressed' ? 'estresado' : stateName === 'sad' ? 'triste' : 'alegre'];
-          if (stateImage) {
-            stateImage.classList.remove('hidden');
-          }
-        }
-      });
-    });
-
-    // Configurar botón reset
-    if (resetButton) {
-      resetButton.addEventListener('click', () => {
-        const initialState = states[0];
-        changeState(initialState);
-      });
     }
 
     // Audio de fondo
@@ -161,6 +82,12 @@ function TestEmocional() {
     };
   }, []);
 
+  useEffect(() => {
+    // Cambia el fondo y otros efectos visuales al cambiar el estado
+    const state = states.find(s => s.name === selectedState) || states[0];
+    setContainerBg(state.backgroundColor);
+  }, [selectedState]);
+
   const toggleSound = () => {
     const newIsMuted = !isMuted;
     setIsMuted(newIsMuted);
@@ -174,6 +101,16 @@ function TestEmocional() {
   const handleIconClick = (path) => {
     navigate(path);
   };
+
+  const handleEmojiClick = (stateName) => {
+    setSelectedState(stateName);
+  };
+
+  const handleReset = () => {
+    setSelectedState('initial');
+  };
+
+  const state = states.find(s => s.name === selectedState) || states[0];
 
   return (
     <div className="test-emocional-container" style={{ minHeight: '100vh', minWidth: '100vw', background: containerBg, transition: 'background 0.5s' }}>
@@ -203,7 +140,11 @@ function TestEmocional() {
       <img src="imagenes/fondo_1.svg" alt="Fondo 1" className="background-figure background-figure-1" />
       <img src="imagenes/fondo_2.svg" alt="Fondo 2" className="background-figure background-figure-2" />
       <div className="hand-pointer-container">
-        <img src="imagenes/mano.png" alt="Mano apuntando" className="hand-pointer" />
+        <img
+          src={state.handImage}
+          alt={selectedState === 'initial' ? 'Mano apuntando' : `Estado ${selectedState}`}
+          className="hand-pointer"
+        />
       </div>
       <div className="test-emocional-background">
         <div className="circle circle-1"></div>
@@ -212,36 +153,44 @@ function TestEmocional() {
       </div>
 
       <div className="test-container">
-        <h1 className="test-title">TEST EMOCIONAL</h1>
-        <h2 className="test-subtitle">¿Cómo te has sentido últimamente?</h2>
-        <h2 className="test-subtitle">Selecciona una opción</h2>
-        <h2 className="test-subtitle">Recomendación</h2>
-        <p className="parrafo-recomendacion"></p>
-
-        <button className="reset-button">VOLVER</button>
-
-        <div className="emojis-row">
-          <div className="emoji-option">
-            <div className="emoji-container">
-              <img src="imagenes/estresado.png" alt="Estresado" />
+        <FadeContent blur duration={500} key={selectedState + '-title'}>
+          <h1 className="test-title">TEST EMOCIONAL</h1>
+        </FadeContent>
+        <FadeContent blur duration={500} key={selectedState + '-subtitle1'}>
+          {selectedState === 'initial' && <h2 className="test-subtitle">¿Cómo te has sentido últimamente?</h2>}
+        </FadeContent>
+        <FadeContent blur duration={500} key={selectedState + '-subtitle2'}>
+          {selectedState === 'initial' && <h2 className="test-subtitle">Selecciona una opción</h2>}
+        </FadeContent>
+        <FadeContent blur duration={500} key={selectedState + '-subtitle3'}>
+          {selectedState !== 'initial' && <h2 className="test-subtitle">{state.subtitle}</h2>}
+        </FadeContent>
+        <FadeContent blur duration={500} key={selectedState + '-recomendacion'}>
+          <p className="parrafo-recomendacion">{state.recommendation}</p>
+        </FadeContent>
+        <button className="reset-button" style={{ display: selectedState === 'initial' ? 'none' : 'block' }} onClick={handleReset}>VOLVER</button>
+        {selectedState === 'initial' && (
+          <div className="emojis-row">
+            <div className="emoji-option" onClick={() => handleEmojiClick('stressed')}>
+              <div className="emoji-container">
+                <img src="imagenes/estresado.png" alt="Estresado" />
+              </div>
+              <span className="emoji-label">ESTRESADO/A</span>
             </div>
-            <span className="emoji-label">ESTRESADO/A</span>
-          </div>
-
-          <div className="emoji-option">
-            <div className="emoji-container">
-              <img src="imagenes/triste.png" alt="Triste" />
+            <div className="emoji-option" onClick={() => handleEmojiClick('sad')}>
+              <div className="emoji-container">
+                <img src="imagenes/triste.png" alt="Triste" />
+              </div>
+              <span className="emoji-label">TRISTE</span>
             </div>
-            <span className="emoji-label">TRISTE</span>
-          </div>
-
-          <div className="emoji-option">
-            <div className="emoji-container">
-              <img src="imagenes/alegre.png" alt="Alegre" />
+            <div className="emoji-option" onClick={() => handleEmojiClick('happy')}>
+              <div className="emoji-container">
+                <img src="imagenes/alegre.png" alt="Alegre" />
+              </div>
+              <span className="emoji-label">ALEGRE</span>
             </div>
-            <span className="emoji-label">ALEGRE</span>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Íconos en la parte inferior */}
