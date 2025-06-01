@@ -7,6 +7,7 @@ import Stack from "./components/ui/Stack";
 import TextPressure from "./components/ui/TextPressure";
 import Threads from "./components/ui/Threads";
 import TiltedCard from "./components/ui/TiltedCard";
+import Iridescence from "./components/ui/Iridescence";
 
 export default function UITestPage() {
     return (
@@ -80,6 +81,17 @@ export default function UITestPage() {
                         showMobileWarning={false}
                         scaleOnHover={1.1}
                         rotateAmplitude={30}
+                    />
+                </div>
+            </section>
+            <section style={{ marginBottom: 48 }}>
+                <h2>Iridescence</h2>
+                <div style={{ height: 700, }}>
+                    <Iridescence
+                        color1="#ff0000"
+                        color2="#00ff00"
+                        color3="#0000ff"
+                        speed={1}
                     />
                 </div>
             </section>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/test-emocional.css';
 import FadeContent from './ui/FadeContent';
 import BlurText from './ui/BlurText';
+import Iridescence from './ui/Iridescence';
 
 function TestEmocional() {
   const navigate = useNavigate();
@@ -179,6 +180,7 @@ function TestEmocional() {
 
   return (
     <div className="test-emocional-container" style={{ minHeight: '100vh', minWidth: '100vw', background: containerBg, transition: 'background 0.5s' }}>
+
       {/* Audio de fondo */}
       <audio id="pageAudio" src="audio/principal.mp3" autoPlay></audio>
 
@@ -208,6 +210,7 @@ function TestEmocional() {
         <img src="imagenes/mano.png" alt="Mano apuntando" className="hand-pointer" />
       </div>
       <div className="test-emocional-background">
+
         <div className="circle circle-1"></div>
         <div className="circle circle-2"></div>
         <div className="circle circle-3"></div>
@@ -276,6 +279,15 @@ function TestEmocional() {
           <img src="iconos/icono_5.png" alt="Ícono de información" className="icon" />
         </div>
       </div>
+
+      <Iridescence
+        color1="#560BA4"
+        color2="#FE0578"
+        color3="#FE0578"
+        speed={1}
+        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -10 }}
+      />
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(174, 27, 143, 0.70)', zIndex: -5 }}></div>
     </div>
   );
 }
