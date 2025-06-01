@@ -226,7 +226,7 @@ function TestEmocional() {
         <FadeContent blur duration={1200}>
           <h2 className="test-subtitle">¿Cómo te has sentido últimamente?</h2>
           <h2 className="test-subtitle">Selecciona una opción</h2>
-          <h2 className="test-subtitle">Recomendación</h2>
+          <h2 className="test-subtitle"></h2>
           <p className="parrafo-recomendacion"></p>
         </FadeContent>
 
