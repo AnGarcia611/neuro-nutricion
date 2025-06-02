@@ -48,9 +48,9 @@ function NeuroNutricion() {
     }
 
     // Para dispositivos de escritorio, volver a la card principal cuando el mouse sale del contenedor
-    const cardsContainer = document.querySelector('.cards-container');
-    if (!('ontouchstart' in window) && cardsContainer) {
-      cardsContainer.addEventListener('mouseleave', function () {
+    const neuroCardsContainer = document.querySelector('.neuro-cards-container');
+    if (!('ontouchstart' in window) && neuroCardsContainer) {
+      neuroCardsContainer.addEventListener('mouseleave', function () {
         clearTimeout(hoverTimeout);
         hoverTimeout = setTimeout(() => {
           cards.forEach(c => c.classList.remove('active'));
@@ -185,13 +185,13 @@ function NeuroNutricion() {
           <p className="description animate-description">Alimenta tu mente desde el plato. La Neuronutrición estudia cómo
             lo que comes impacta tu salud mental y emocional.</p>
         </div>
-        <div className="cards-container animate-cards">
+        <div className="neuro-cards-container animate-cards">
           <div className="nn-card intestino-card">
             <img src="imagenes/imagen_1.png" alt="Microbiota intestinal" />
             <div className="card-info">
               <h3>El secreto del intestino</h3>
               <p>Un viaje al centro de tu microbiota.</p>
-              <p>Este documental explora cómo los billones de microbios en tu intestino afectan tu salud mental,
+              <p>Este documental explora c\u00f3mo los billones de microbios en tu intestino afectan tu salud mental,
                 inmunidad y emociones.</p>
               <p>Documental recomendado</p>
               <div className="button-container">

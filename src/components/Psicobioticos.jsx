@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/psicobioticos.css';
 import SplashCursor from './ui/SplashCursor';
+import Stack from './ui/Stack';
 
 function Psicobioticos() {
   const navigate = useNavigate();
@@ -14,96 +15,6 @@ function Psicobioticos() {
     const pageAudio = document.getElementById('pageAudio');
     if (pageAudio) {
       pageAudio.muted = audioMuted;
-    }
-
-    // Configurar carrusel de imágenes
-    const images = [
-      'imagenes/psicobioticos/lupa_2.png',
-      'imagenes/psicobioticos/cerebro.png',
-      'imagenes/psicobioticos/lupa.png',
-      'imagenes/psicobioticos/mujer.png',
-      'imagenes/psicobioticos/organismos.png'
-    ];
-    let currentIndex = 0;
-    const illustration = document.querySelector('.illustration');
-    const arrowHand = document.querySelector('.icon-arrow-hand');
-
-    // Función para cambiar imagen con efecto deslizante
-    function changeImageWithSlide(nextIndex, direction) {
-      if (!illustration) return;
-
-      illustration.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s';
-      illustration.style.transform = `translateX(${direction === 'left' ? '-100%' : '100%'})`;
-      illustration.style.opacity = '0';
-      setTimeout(() => {
-        illustration.src = images[nextIndex];
-        illustration.style.transition = 'none';
-        illustration.style.transform = `translateX(${direction === 'left' ? '100%' : '-100%'})`;
-        setTimeout(() => {
-          illustration.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.4s';
-          illustration.style.transform = 'translateX(0)';
-          illustration.style.opacity = '1';
-        }, 20);
-      }, 400);
-    }
-
-    if (arrowHand) {
-      arrowHand.addEventListener('click', () => {
-        const nextIndex = (currentIndex + 1) % images.length;
-        changeImageWithSlide(nextIndex, 'left');
-        currentIndex = nextIndex;
-      });
-    }
-
-    // Soporte para swipe/touch en la imagen (ignorando según especificaciones)
-    if (illustration) {
-      let startX = null;
-      illustration.addEventListener('touchstart', function (e) {
-        if (e.touches.length === 1) {
-          startX = e.touches[0].clientX;
-        }
-      });
-      illustration.addEventListener('touchend', function (e) {
-        if (startX === null) return;
-        let endX = e.changedTouches[0].clientX;
-        let diffX = endX - startX;
-        if (Math.abs(diffX) > 40) {
-          let direction = diffX < 0 ? 'left' : 'right';
-          let nextIndex = diffX < 0
-            ? (currentIndex + 1) % images.length
-            : (currentIndex - 1 + images.length) % images.length;
-          changeImageWithSlide(nextIndex, direction);
-          currentIndex = nextIndex;
-        }
-        startX = null;
-      });
-
-      // Soporte para arrastrar con mouse en desktop
-      let mouseDown = false;
-      let mouseStartX = null;
-      illustration.addEventListener('mousedown', function (e) {
-        mouseDown = true;
-        mouseStartX = e.clientX;
-      });
-      illustration.addEventListener('mouseup', function (e) {
-        if (!mouseDown || mouseStartX === null) return;
-        let mouseEndX = e.clientX;
-        let diffX = mouseEndX - mouseStartX;
-        if (Math.abs(diffX) > 40) {
-          let direction = diffX < 0 ? 'left' : 'right';
-          let nextIndex = diffX < 0
-            ? (currentIndex + 1) % images.length
-            : (currentIndex - 1 + images.length) % images.length;
-          changeImageWithSlide(nextIndex, direction);
-          currentIndex = nextIndex;
-        }
-        mouseDown = false;
-        mouseStartX = null;
-      });
-      illustration.addEventListener('mouseleave', function () {
-        mouseDown = false;
-        mouseStartX = null;
-      });
     }
 
     // Audio de fondo
@@ -153,6 +64,15 @@ function Psicobioticos() {
     navigate(path);
   };
 
+  // Declarar el array de imágenes fuera del JSX
+  const images = [
+    { id: 1, img: 'imagenes/psicobioticos/lupa_2.png' },
+    { id: 2, img: 'imagenes/psicobioticos/cerebro.png' },
+    { id: 3, img: 'imagenes/psicobioticos/lupa.png' },
+    { id: 4, img: 'imagenes/psicobioticos/mujer.png' },
+    { id: 5, img: 'imagenes/psicobioticos/organismos.png' }
+  ];
+
   return (
     <>
       <SplashCursor />
@@ -176,21 +96,24 @@ function Psicobioticos() {
       <main className="content-section">
         <div className="content-container">
           <section className="info-section">
-            <header className="header-section">
-              <h1>Descubre cómo actúan los psicobióticos</h1>
-            </header>
-            <div className="text-container">
-              <p>Los psicobióticos son organismos vivos que, cuando se ingieren en cantidades adecuadas, pueden
-                beneficiar la salud mental a través de la interacción con el eje intestino-cerebro.</p>
-            </div>
+            <h1>
+              Descubre cómo actúan<br />
+              los psicobióticos
+            </h1>
+            <p>Los psicobióticos son organismos vivos que, cuando se ingieren en cantidades adecuadas, pueden
+              beneficiar la salud mental a través de la interacción con el eje intestino-cerebro.</p>
           </section>
-          <div className="image-container">
-            <img src="imagenes/psicobioticos/lupa_2.png" alt="Ilustración de intestinos" className="illustration" />
-          </div>
-          <img src="iconos/icono_7.png" alt="Ícono flecha mano" className="icon-arrow-hand" />
+
+          <Stack
+            randomRotation={true}
+            sensitivity={180}
+            cardDimensions={{ width: 300, height: 600 }}
+            animationConfig={{ stiffness: 100, damping: 20 }}
+            sendToBackOnClick={true}
+            cardsData={images}
+          />
         </div>
       </main>
-
       <div className="icons-grid">
         <div className="icon-box inicio" onClick={() => handleIconClick('/')}>
           <img src="iconos/icono_1.png" alt="Ícono de cerebro" className="icon" />
