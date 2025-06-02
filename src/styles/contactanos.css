@@ -324,6 +324,42 @@
     }
 }
 
+@media (max-width: 1024px) {
+  .content-columns {
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .left-column, .right-column {
+    width: 90%;
+    max-width: none;
+  }
+
+  .contact-container {
+    padding: 60px 20px;
+  }
+
+  .main-content {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .team-section {
+    min-height: 300px;
+    margin-top: 200px;
+  }
+
+  .header-divider {
+    display: none;
+  }
+
+  .right-column p {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 800px) {
     .main-content {
         max-width: 100vw;
@@ -353,6 +389,27 @@
     .heart-brain-logo img {
         width: 40px;
     }
+}
+
+@media (max-width: 768px) {
+  .header-divider {
+    margin: 50px 0 0;
+  }
+
+  .team-member {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icons img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .heart-brain-logo img {
+    width: 80%;
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 500px) {
