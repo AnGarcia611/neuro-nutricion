@@ -57,7 +57,7 @@ export default function UITestPage() {
             </section>
             <section style={{ marginBottom: 48 }}>
                 <h2>TextPressure</h2>
-                <div >
+                <div style={{ position: 'relative', height: '700px' }}>
                     <TextPressure text="TextPressure Demo" />
                 </div>
             </section>

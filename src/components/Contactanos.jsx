@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextPressure from './ui/TextPressure';
+import Threads from './ui/Threads';
 import '../styles/contactanos.css';
 
 function Contactanos() {
@@ -83,9 +84,16 @@ function Contactanos() {
             <img src="iconos/sound_on.svg" alt="Sonido desactivado" />
           </span>
         </div>
+        <div style={{ width: '100%', height: '600px', position: 'absolute', top: -200, left: 0 }}>
+          <Threads
+            color={[254, 0, 120]}  /*rgb(254 5 120) [79, 47, 136, 1]*/
+            amplitude={0.5}
+            distance={0}
+            enableMouseInteraction={true}
+          />
+        </div>
 
-
-        <div className="header-divider"></div>
+        {/* <div className="header-divider"></div> */}
 
 
         {/* Contenido principal */}
@@ -131,8 +139,37 @@ function Contactanos() {
                 </div>
               </div>
               <div className="right-column">
-                <h2 >Nuestra</h2>
-                <h1 >Historia</h1>
+                {/* <h2 >NUESTRA</h2>  */}
+                <div style={{ position: 'relative', height: '50px', width: '130px' }}>
+                  <TextPressure
+                    text="Nuestra"
+                    fontFamily='Nunito'
+                    textColor="#E94E95"
+                    strokeColor="#ff0000"
+                    minFontSize={38}
+                    flex={true}
+                    alpha={false}
+                    width={true}
+                    weight={false}
+
+                  />
+
+                </div>
+
+                {/* <h1 >Historia</h1> */}
+                <div style={{ position: 'relative', height: '50px', width: '250px' }}>
+                  <TextPressure
+                    text="Historia"
+                    fontFamily='Nunito'
+                    textColor="#E94E95"
+                    strokeColor="#ff0000"
+                    minFontSize={70}
+                    flex={true}
+                    alpha={false}
+                    width={true}
+                    weight={false}
+                  />
+                </div>
                 <div className="about-text" >
                   <p>Diseñadoras digitales y multimedia comprometidas con la creación de experiencias emocionales e interactivas que transforman la forma en que exploramos temas vitales.<br />Desde la sensibilidad artística y la innovación tecnológica, surge nuestro enfoque: la Neuronutrición, un concepto que conecta cuerpo, mente y entorno.</p>
                   <p>Nace en Marzo 2025 esta webdoc no lineal ofrece alternativas conscientes frente a los desafíos del bienestar contemporáneo. Creemos que el cuidado está en nuestras manos y que el diseño digital puede abrir caminos de reflexión, empatía y cambio.</p>
