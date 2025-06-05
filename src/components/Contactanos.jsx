@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextPressure from './ui/TextPressure';
 import Threads from './ui/Threads';
+import RotatingText from './ui/RotatingText';
 import '../styles/contactanos.css';
 
 function Contactanos() {
@@ -117,7 +118,22 @@ function Contactanos() {
                         <img src="iconos/logo-linkeding.svg" alt="LinkedIn" />
                       </a>
                     </div>
-                    <div className="member-name">Laura Pulido </div>
+                    <div className="member-name" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgb(79, 47, 135)', background: 'none', minWidth: '290px', maxWidth: '290px', justifyContent: 'left  ' }}>
+                      Laura Pulido
+                      <RotatingText
+                        texts={['Soñadora', 'Detallista', 'Empática', 'Innovadora', 'Creativa']}
+                        staggerFrom={"last"}
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "-120%" }}
+                        staggerDuration={0.025}
+                        splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                        transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                        rotationInterval={3000}
+                        mainClassName="rotating-text-bg"
+                      />
+                    </div>
+
 
                   </div>
                   <div className="team-member">
@@ -135,7 +151,21 @@ function Contactanos() {
                         <img src="iconos/logo-linkeding.svg" alt="LinkedIn" />
                       </a>
                     </div>
-                    <div className="member-name">Andrea Sánchez</div>
+                    <div className="member-name" style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'rgb(79, 47, 135)', background: 'none', minWidth: '290px', maxWidth: '290px', justifyContent: 'left' }}>
+                      Andrea Sánchez
+                      <RotatingText
+                        texts={['Creativa', 'Artista', 'Profesional', 'Dinámica', 'Talentosa', 'Ingeniosa']}
+                        staggerFrom={"last"}
+                        initial={{ y: "100%" }}
+                        animate={{ y: 0 }}
+                        exit={{ y: "-120%" }}
+                        staggerDuration={0.025}
+                        splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+                        transition={{ type: "spring", damping: 30, stiffness: 400 }}
+                        rotationInterval={3000}
+                        mainClassName="rotating-text-bg"
+                      />
+                    </div>
 
                   </div>
 
