@@ -215,12 +215,37 @@
     margin: 10px 0;
     display: flex;
     justify-content: center;
-    
+    /* Heartbeat animation */
+    animation: heartbeat 1.2s infinite;
 }
 .heart-brain-logo img {
     width: 100%;
     max-width: 200px;
     height: auto;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    10% {
+        transform: scale(1.08);
+    }
+    20% {
+        transform: scale(0.95);
+    }
+    30% {
+        transform: scale(1.05);
+    }
+    40% {
+        transform: scale(0.97);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .footer-container {
