@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/inicio.css';
+import Orb from './ui/Orb';
 
 function Inicio() {
   const [isMuted, setIsMuted] = useState(false);
@@ -85,6 +86,16 @@ function Inicio() {
 
       {/* Audio de bienvenida */}
       <audio id="introAudio" src="audio/principal.mp3" autoPlay></audio>
+
+      {/* Orb component in the center */}
+      <div className="orb-center">
+        <Orb 
+          hue={280} 
+          hoverIntensity={0.3} 
+          rotateOnHover={true} 
+          forceHoverState={false} 
+        />
+      </div>
 
       {/* Tarjeta de información */}
       <div className="info-card">

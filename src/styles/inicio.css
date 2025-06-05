@@ -232,6 +232,32 @@
     }
 }
 
+/* Orb center positioning */
+.orb-center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    z-index: 50;
+    pointer-events: auto;
+    animation: orbFadeIn 2s ease-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes orbFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
 /* Keyframes for animations */
 @keyframes scaleIn {
     from {
