@@ -186,7 +186,7 @@ function TestEmocional() {
 
       {/* Icono de sonido */}
       <div
-        className={`sound-toggle ${isMuted ? 'muted' : ''}`}
+        className={`sound-toggle animate-sound-toggle ${isMuted ? 'muted' : ''}`}
         onClick={toggleSound}
         title="Silenciar/Activar sonido"
       >
@@ -206,24 +206,24 @@ function TestEmocional() {
       </div>
       <img src="imagenes/fondo_1.svg" alt="Fondo 1" className="background-figure background-figure-1" />
       <img src="imagenes/fondo_2.svg" alt="Fondo 2" className="background-figure background-figure-2" />
-      <div className="hand-pointer-container">
+      <div className="hand-pointer-container animate-hand-container">
         <img src="imagenes/mano.png" alt="Mano apuntando" className="hand-pointer" />
       </div>
       <div className="test-emocional-background">
 
-        <div className="circle circle-1"></div>
-        <div className="circle circle-2"></div>
-        <div className="circle circle-3"></div>
+        <div className="circle circle-1 animate-circle-1"></div>
+        <div className="circle circle-2 animate-circle-2"></div>
+        <div className="circle circle-3 animate-circle-3"></div>
       </div>
 
       <div className="test-container">
         <BlurText
           text="TEST EMOCIONAL"
           delay={500}
-          className="test-title"
+          className="test-title animate-title"
         />
 
-        <FadeContent blur duration={1200}>
+        <FadeContent blur duration={1200} className="animate-description">
           <h2 className="test-subtitle">¿Cómo te has sentido últimamente?</h2>
           <h2 className="test-subtitle">Selecciona una opción</h2>
           <h2 className="test-subtitle"></h2>
@@ -232,9 +232,9 @@ function TestEmocional() {
 
 
 
-        <button className="reset-button">VOLVER</button>
+        <button className="reset-button animate-reset-button">VOLVER</button>
 
-        <div className="emojis-row">
+        <div className="emojis-row animate-emojis">
           <div className="emoji-option">
             <div className="emoji-container">
               <img src="imagenes/estresado.png" alt="Estresado" />
@@ -259,7 +259,7 @@ function TestEmocional() {
       </div>
 
       {/* Íconos en la parte inferior */}
-      <div className="icons-grid">
+      <div className="icons-grid animate-icons-grid">
         <div className="icon-box inicio" onClick={() => handleIconClick('/')}>
           <img src="iconos/icono_1.png" alt="Ícono de cerebro" className="icon" />
         </div>

@@ -74,7 +74,7 @@ function Contactanos() {
 
         {/* Icono de sonido */}
         <div
-          className={`sound-toggle ${isMuted ? 'muted' : ''}`}
+          className={`sound-toggle ${isMuted ? 'muted' : ''} animate-scale-in animate-delay-2`}
           onClick={toggleSound}
           title="Silenciar/Activar sonido"
         >
@@ -98,12 +98,12 @@ function Contactanos() {
 
 
         {/* Contenido principal */}
-        <main className="main-content">
-          <div className="contact-container">
+        <main className="main-content animate-fade-in-up animate-delay-1">
+          <div className="contact-container animate-zoom-in animate-delay-3">
             <div className="content-columns">
-              <div className="left-column">
-                <div className="team-section">
-                  <div className="team-member">
+              <div className="left-column animate-slide-in-left animate-delay-5">
+                <div className="team-section animate-fade-in-up animate-delay-7">
+                  <div className="team-member animate-scale-in animate-delay-8">
                     <div className="member-photo">
                       <div className="flower-background">
                         <img src="imagenes/flores_lau.png" alt="Flores decorativas Laura" className="flower-image-laura" />
@@ -136,7 +136,7 @@ function Contactanos() {
 
 
                   </div>
-                  <div className="team-member">
+                  <div className="team-member animate-scale-in animate-delay-10">
                     <div className="member-photo">
                       <div className="flower-background">
                         <img src="imagenes/flores_andrea.png" alt="Flores decorativas Andrea" className="flower-image-andrea" />
@@ -170,15 +170,15 @@ function Contactanos() {
                   </div>
 
                 </div>
-                <div className="footer-content" style={{ marginTop: 0, textAlign: 'left', color: '#FE0578', fontWeight: 400, fontSize: '1.1em', maxWidth: 900, margin: '0 auto' }}>
+                <div className="footer-content animate-fade-in-up animate-delay-12" style={{ marginTop: 0, textAlign: 'left', color: '#FE0578', fontWeight: 400, fontSize: '1.1em', maxWidth: 900, margin: '0 auto' }}>
                   <p>Creemos que <strong>informar</strong> es una forma de <strong>cuidar</strong>.<br />
                     <span style={{ color: '#FE0578', fontWeight: 700 }}>Por eso, este <span style={{ color: '#9C27B0' }}>webdoc</span> te invita a <span style={{ color: '#FE0578' }}>reconectar contigo</span>, eligiendo <span style={{ color: '#FE0578' }}>tu bienestar</span>.</span>
                   </p>
                 </div>
               </div>
-              <div className="right-column">
+              <div className="right-column animate-slide-in-right animate-delay-6">
                 {/* <h2 >NUESTRA</h2>  */}
-                <div style={{ position: 'relative', height: '50px', width: '130px' }}>
+                <div className="animate-fade-in-down animate-delay-9" style={{ position: 'relative', height: '50px', width: '130px' }}>
                   <TextPressure
                     text="Nuestra"
                     fontFamily='Nunito'
@@ -195,7 +195,7 @@ function Contactanos() {
                 </div>
 
                 {/* <h1 >Historia</h1> */}
-                <div style={{ position: 'relative', height: '50px', width: '250px' }}>
+                <div className="animate-fade-in-down animate-delay-11" style={{ position: 'relative', height: '50px', width: '250px' }}>
                   <TextPressure
                     text="Historia"
                     fontFamily='Nunito'
@@ -208,13 +208,13 @@ function Contactanos() {
                     weight={false}
                   />
                 </div>
-                <div className="about-text" >
+                <div className="about-text animate-fade-in-up animate-delay-13" >
                   <p>Diseñadoras digitales y multimedia comprometidas con la creación de experiencias emocionales e interactivas que transforman la forma en que exploramos temas vitales.<br />Desde la sensibilidad artística y la innovación tecnológica, surge nuestro enfoque: la Neuronutrición, un concepto que conecta cuerpo, mente y entorno.</p>
                   <p>Nace en Marzo 2025 esta webdoc no lineal ofrece alternativas conscientes frente a los desafíos del bienestar contemporáneo. Creemos que el cuidado está en nuestras manos y que el diseño digital puede abrir caminos de reflexión, empatía y cambio.</p>
                 </div>
               </div>
             </div>
-            <div className="heart-brain-logo">
+            <div className="heart-brain-logo animate-scale-in animate-delay-14">
               <img src="imagenes/heart_brain.png" alt="Heart and Brain Logo" />
             </div>
           </div>
@@ -223,7 +223,7 @@ function Contactanos() {
 
         {/* Íconos de navegación */}
         <div className="icons-grid-container">
-          <div className="icons-grid">
+          <div className="icons-grid animate-fade-in-up animate-delay-15">
             <div className="icon-box inicio" onClick={() => handleIconClick('/')}>
               <img src="iconos/icono_1.png" alt="Ícono de cerebro" className="icon" />
             </div>

@@ -96,8 +96,10 @@
 }
 
 /* Prevenir comportamientos no deseados durante transiciones */
-.neuro-cards-container:hover .nn-card:not(:hover) {
+.neuro-cards-container:hover .nn-card:not(:hover):not(.active):not(.adjacent) {
     transition-delay: 0.1s;
+    opacity: 0.6;
+    transform: scale(0.95);
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -422,6 +424,25 @@
     animation: fadeInUp 1s ease-out forwards;
     animation-delay: 0.9s;
     opacity: 0;
+}
+
+/* Efecto de hover individual para tarjetas en desktop */
+@media (min-width: 769px) {
+    .nn-card:hover:not(.active):not(.adjacent) {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        z-index: 10;
+    }
+    
+    .nn-card.active:hover {
+        transform: translateY(-15px) scale(1.02);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nn-card.adjacent:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.45);
+    }
 }
 
 

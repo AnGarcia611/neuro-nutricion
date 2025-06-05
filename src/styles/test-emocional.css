@@ -190,14 +190,29 @@
     display: none; /* Hidden by default */
     z-index: -1; /* Place it above the body background but below other elements */
     scale: 0.7;
+    transition: all 0.5s ease;
 }
 
 .state-image.hidden {
     display: none;
+    opacity: 0;
+    transform: scale(0.5);
 }
 
 .state-image:not(.hidden) {
     display: block;
+    animation: fadeInScale 0.8s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(0.7);
+    }
 }
 
 /* Animación de entrada para el icono de sonido */
@@ -209,6 +224,149 @@
     to {
         transform: scale(1);
         opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation classes for elements */
+.animate-title {
+    animation: fadeInDown 1s ease-out forwards;
+    opacity: 0;
+}
+
+.animate-description {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+.animate-emojis {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+}
+
+.animate-reset-button {
+    animation: scaleIn 1s ease-out forwards;
+    animation-delay: 0.4s;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.animate-icons-grid {
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.9s;
+    opacity: 0;
+}
+
+/* Animaciones para los círculos de fondo */
+.animate-circle-1 {
+    animation: scaleInCircle 1.2s ease-out forwards;
+    animation-delay: 0.1s;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.animate-circle-2 {
+    animation: scaleInCircle 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.animate-circle-3 {
+    animation: scaleInCircle 1.2s ease-out forwards;
+    animation-delay: 0.5s;
+    transform: scale(0);
+    opacity: 0;
+}
+
+@keyframes scaleInCircle {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+}
+
+/* Animación para emoji hover más suave */
+.emoji-option {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.emoji-option:hover {
+    transform: scale(1.15);
+}
+
+/* Animación para la mano pointer */
+.animate-hand-container {
+    animation: slideInRight 1s ease-out forwards;
+    animation-delay: 0.7s;
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animación para el toggle de sonido */
+.animate-sound-toggle {
+    animation: scaleIn 1s ease-out forwards;
+    animation-delay: 0.2s;
+    transform: scale(0);
+    opacity: 0;
+}
+
+/* Mejoras de performance y accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    .animate-title,
+    .animate-description,
+    .animate-emojis,
+    .animate-reset-button,
+    .animate-icons-grid,
+    .animate-circle-1,
+    .animate-circle-2,
+    .animate-circle-3,
+    .animate-hand-container,
+    .animate-sound-toggle,
+    .emoji-option,
+    .state-image {
+        animation: none;
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }
 

@@ -81,7 +81,7 @@ function Psicobioticos() {
 
       {/* Icono de sonido */}
       <div
-        className={`sound-toggle ${isMuted ? 'muted' : ''}`}
+        className={`sound-toggle animate-sound-toggle ${isMuted ? 'muted' : ''}`}
         onClick={toggleSound}
         title="Silenciar/Activar sonido"
       >
@@ -93,28 +93,30 @@ function Psicobioticos() {
         </span>
       </div>
 
-      <main className="content-section">
-        <div className="content-container">
-          <section className="info-section">
-            <h1>
+      <main className="content-section animate-main-section">
+        <div className="content-container animate-content-container">
+          <section className="info-section animate-info-section">
+            <h1 className="animate-title">
               Descubre cómo actúan<br />
               los psicobióticos
             </h1>
-            <p>Los psicobióticos son organismos vivos que, cuando se ingieren en cantidades adecuadas, pueden
+            <p className="animate-description">Los psicobióticos son organismos vivos que, cuando se ingieren en cantidades adecuadas, pueden
               beneficiar la salud mental a través de la interacción con el eje intestino-cerebro.</p>
           </section>
 
-          <Stack
-            randomRotation={true}
-            sensitivity={180}
-            cardDimensions={{ width: 300, height: 600 }}
-            animationConfig={{ stiffness: 100, damping: 20 }}
-            sendToBackOnClick={true}
-            cardsData={images}
-          />
+          <div className="animate-stack-container">
+            <Stack
+              randomRotation={true}
+              sensitivity={180}
+              cardDimensions={{ width: 300, height: 600 }}
+              animationConfig={{ stiffness: 100, damping: 20 }}
+              sendToBackOnClick={true}
+              cardsData={images}
+            />
+          </div>
         </div>
       </main>
-      <div className="icons-grid">
+      <div className="icons-grid animate-icons-grid">
         <div className="icon-box inicio" onClick={() => handleIconClick('/')}>
           <img src="iconos/icono_1.png" alt="Ícono de cerebro" className="icon" />
         </div>
