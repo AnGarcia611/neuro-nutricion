@@ -245,6 +245,7 @@
     animation: orbFadeIn 2s ease-out forwards;
     animation-delay: 1s;
     opacity: 0;
+    cursor: pointer;
 }
 
 @keyframes orbFadeIn {

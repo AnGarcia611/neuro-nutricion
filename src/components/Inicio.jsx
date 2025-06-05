@@ -5,6 +5,7 @@ import Orb from './ui/Orb';
 
 function Inicio() {
   const [isMuted, setIsMuted] = useState(false);
+  const [showInfoCard, setShowInfoCard] = useState(false);
 
   useEffect(() => {
     const savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
@@ -57,6 +58,10 @@ function Inicio() {
     localStorage.setItem('audioMuted', newIsMuted);
   };
 
+  const handleOrbClick = () => {
+    setShowInfoCard(!showInfoCard);
+  };
+
   return (
     <>
       {/* Video de fondo */}
@@ -88,7 +93,7 @@ function Inicio() {
       <audio id="introAudio" src="audio/principal.mp3" autoPlay></audio>
 
       {/* Orb component in the center */}
-      <div className="orb-center">
+      <div className="orb-center" onClick={handleOrbClick}>
         <Orb 
           hue={280} 
           hoverIntensity={0.3} 
@@ -98,20 +103,22 @@ function Inicio() {
       </div>
 
       {/* Tarjeta de información */}
-      <div className="info-card">
-        <h1>NEURO NUTRICIÓN</h1>
-        <h2>Tu mente también se alimenta</h2>
-        <p>La forma en que te alimentas puede cambiar cómo te sientes, piensas y actúas. Tu estado emocional, tu energía
-          diaria e incluso tu claridad mental están profundamente conectados con lo que pones en tu plato.</p>
-        <p>¿Sabías que ciertos alimentos estimulan neurotransmisores como la serotonina o la dopamina?</p>
-        <p>¿O que el estrés y la ansiedad pueden mejorar con pequeños cambios nutricionales?</p>
-        <p>La neuronutrición te invita a redescubrir el equilibrio desde adentro.</p>
-        <hr className="divider" />
-        <Link to="/neuro-nutricion" className="comenzar-btn">COMENZAR</Link>
-        <div className="card-footer">
-          <p>Alimentar tu mente es el primer paso para sentirte mejor.</p>
+      {showInfoCard && (
+        <div className="info-card">
+          <h1>NEURO NUTRICIÓN</h1>
+          <h2>Tu mente también se alimenta</h2>
+          <p>La forma en que te alimentas puede cambiar cómo te sientes, piensas y actúas. Tu estado emocional, tu energía
+            diaria e incluso tu claridad mental están profundamente conectados con lo que pones en tu plato.</p>
+          <p>¿Sabías que ciertos alimentos estimulan neurotransmisores como la serotonina o la dopamina?</p>
+          <p>¿O que el estrés y la ansiedad pueden mejorar con pequeños cambios nutricionales?</p>
+          <p>La neuronutrición te invita a redescubrir el equilibrio desde adentro.</p>
+          <hr className="divider" />
+          <Link to="/neuro-nutricion" className="comenzar-btn">COMENZAR</Link>
+          <div className="card-footer">
+            <p>Alimentar tu mente es el primer paso para sentirte mejor.</p>
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 }
