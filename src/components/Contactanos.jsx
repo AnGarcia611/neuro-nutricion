@@ -110,10 +110,14 @@ function Contactanos() {
                       <img src="imagenes/laura.png" alt="Laura Pulido" className="person-image" />
                     </div>
                     <div className="social-icons">
-                      <img src="iconos/logo-instagram.svg" alt="Instagram" />
-                      <img src="iconos/logo-linkeding.png" alt="LinkedIn" />
+                      <a href="https://www.instagram.com/mihogarunarbol/?igsh=MXVxc3M0aW41N28wcw%3D%3D#" target="_blank" rel="noopener noreferrer">
+                        <img src="iconos/logo-instagram.svg" alt="Instagram" />
+                      </a>
+                      <a href="https://www.linkedin.com/in/laura-pulido-medina-8245b6329/" target="_blank" rel="noopener noreferrer">
+                        <img src="iconos/logo-linkeding.svg" alt="LinkedIn" />
+                      </a>
                     </div>
-                    <div className="member-name">Laura Pulido</div>
+                    <div className="member-name">Laura Pulido </div>
 
                   </div>
                   <div className="team-member">
@@ -124,8 +128,12 @@ function Contactanos() {
                       <img src="imagenes/andrea.png" alt="Andrea Sánchez" className="person-image" />
                     </div>
                     <div className="social-icons">
-                      <img src="iconos/logo-instagram.svg" alt="Instagram" />
-                      <img src="iconos/logo-linkeding.png" alt="LinkedIn" />
+                      <a href="https://www.instagram.com/drea_111111/" target="_blank" rel="noopener noreferrer">
+                        <img src="iconos/logo-instagram.svg" alt="Instagram" />
+                      </a>
+                      <a href="https://www.linkedin.com/in/andrea-sanchez-738835214/" target="_blank" rel="noopener noreferrer">
+                        <img src="iconos/logo-linkeding.svg" alt="LinkedIn" />
+                      </a>
                     </div>
                     <div className="member-name">Andrea Sánchez</div>
 

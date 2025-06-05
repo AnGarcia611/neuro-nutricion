@@ -30,7 +30,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding: 120px 0 0 0;
+    padding: 180px 0 0 0;
     overflow: visible;
 }
 
@@ -249,45 +249,30 @@
     font-weight: 700;
 }
 
-/* Social icons container */
 .social-icons {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  margin: 8px;
-  z-index: 3;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+    z-index: 3;
 }
 
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid #B71B5A;
-  background: #FAFAFA;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-sizing: border-box;
-  padding: 0;
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    display: block;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.social-icon img {
-  width: 28px;
-  height: 28px;
-  display: block;
-}
-
-.social-icon:hover {
-  background: #F8EAF2;
-  box-shadow: 0 2px 8px rgba(183,27,90,0.08);
+.social-icons img:hover {
+    transform: scale(1.15);
+    cursor: pointer;
 }
 
 .instagram {
-  border-color: #560BA4;
+    border-color: #560BA4;    
 }
 
 .linkedin {
@@ -337,7 +322,7 @@
   }
 
   .contact-container {
-    padding: 60px 20px;
+    padding: 80px 20px;
   }
 
   .main-content {
