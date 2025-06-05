@@ -108,10 +108,10 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-family: 'Nunito', sans-serif;
     box-sizing: border-box;
-    animation: fadeInUp 1s ease-out forwards;
-    animation-delay: 0.6s;
+    animation: expandFromOrb 0.8s ease-out forwards;
+    animation-delay: 0.2s;
     opacity: 0;
-    transform: translateY(30px);
+    transform: scale(0) translateY(0);
 }
 
 .info-card h1 {
@@ -259,6 +259,34 @@
     }
 }
 
+/* Texto centrado dentro del orb */
+.orb-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    pointer-events: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    animation: textPulse 2s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
 /* Keyframes for animations */
 @keyframes scaleIn {
     from {
@@ -271,13 +299,69 @@
     }
 }
 
-@keyframes fadeInUp {
-    from {
-        transform: translateY(30px);
+@keyframes expandFromOrb {
+    0% {
+        transform: scale(0);
         opacity: 0;
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+        translate: -50% -50%;
+        width: 0;
+        height: 0;
     }
-    to {
-        transform: translateY(0);
+    1% {
+        position: fixed;
+        bottom: 10vh;
+        left: 5%;
+        width: 90%;
+        max-width: 680px;
+        translate: 0 0;
+    }
+    100% {
+        transform: scale(1);
         opacity: 1;
+        position: fixed;
+        bottom: 10vh;
+        left: 5%;
+        width: 90%;
+        max-width: 680px;
+        translate: 0 0;
     }
+}
+
+@keyframes contractToOrb {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        position: fixed;
+        bottom: 10vh;
+        left: 5%;
+        width: 90%;
+        max-width: 680px;
+        translate: 0 0;
+    }
+    99% {
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+        translate: -50% -50%;
+        width: 0;
+        height: 0;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+        position: fixed;
+        top: 50vh;
+        left: 50vw;
+        translate: -50% -50%;
+        width: 0;
+        height: 0;
+    }
+}
+
+/* Clase para animación de salida */
+.info-card.closing {
+    animation: contractToOrb 0.5s ease-in forwards;
 }

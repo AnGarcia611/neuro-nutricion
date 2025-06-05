@@ -6,6 +6,7 @@ import Orb from './ui/Orb';
 function Inicio() {
   const [isMuted, setIsMuted] = useState(false);
   const [showInfoCard, setShowInfoCard] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
     const savedAudioTime = parseFloat(localStorage.getItem('audioTime')) || 0;
@@ -59,7 +60,17 @@ function Inicio() {
   };
 
   const handleOrbClick = () => {
-    setShowInfoCard(!showInfoCard);
+    if (showInfoCard) {
+      // Si está visible, iniciamos animación de cierre
+      setIsClosing(true);
+      setTimeout(() => {
+        setShowInfoCard(false);
+        setIsClosing(false);
+      }, 500); // Duración de la animación contractToOrb
+    } else {
+      // Si está oculta, la mostramos
+      setShowInfoCard(true);
+    }
   };
 
   return (
@@ -92,19 +103,24 @@ function Inicio() {
       {/* Audio de bienvenida */}
       <audio id="introAudio" src="audio/principal.mp3" autoPlay></audio>
 
-      {/* Orb component in the center */}
-      <div className="orb-center" onClick={handleOrbClick}>
-        <Orb 
-          hue={280} 
-          hoverIntensity={0.3} 
-          rotateOnHover={true} 
-          forceHoverState={false} 
-        />
-      </div>
+      {/* Orb component in the center - solo visible cuando info-card está oculta */}
+      {!showInfoCard && (
+        <div className="orb-center" onClick={handleOrbClick}>
+          <Orb 
+            hue={280} 
+            hoverIntensity={0.3} 
+            rotateOnHover={true} 
+            forceHoverState={false} 
+          />
+          <div className="orb-text">
+            Click aquí
+          </div>
+        </div>
+      )}
 
       {/* Tarjeta de información */}
       {showInfoCard && (
-        <div className="info-card">
+        <div className={`info-card ${isClosing ? 'closing' : ''}`}>
           <h1>NEURO NUTRICIÓN</h1>
           <h2>Tu mente también se alimenta</h2>
           <p>La forma en que te alimentas puede cambiar cómo te sientes, piensas y actúas. Tu estado emocional, tu energía
